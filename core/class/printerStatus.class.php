@@ -57,7 +57,7 @@
 
           if ($oidModel !== '') {
               try {
-                  $model = snmpget($adresseIp, 'public', $oidModel, 10000, 1);
+                  $model = snmpget($adresseIp, 'public', $oidModel, 50000, 1);
               } catch (Throwable $t) {
                   log::add('printerStatus', 'error', $t->getMessage());
               } catch (Exception $e) {
@@ -69,7 +69,7 @@
 
           if ($oidSerial !== '') {
             try {
-                $serial = snmpget($adresseIp, 'public', $oidSerial, 10000, 1);
+                $serial = snmpget($adresseIp, 'public', $oidSerial, 50000, 1);
             } catch (Throwable $t) {
                 log::add('printerStatus', 'error', $t->getMessage());
             } catch (Exception $e) {
