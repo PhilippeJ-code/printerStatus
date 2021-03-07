@@ -106,19 +106,24 @@
 
             <legend><i class="fas fa-cogs"></i> {{Paramètres}}</legend>
             <div class="form-group">
-              <label class="col-sm-3 control-label help"
-                data-help="{{Adresse IP}}">{{Adresse IP de l'imprimante :}}</label>
+              <label class="col-sm-3 control-label">{{Adresse IP de l'imprimante}}</label>
               <div class="col-sm-9">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="adresse_ip"
                   placeholder="{{Adresse IP}}" />
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-3 control-label help"
-                data-help="{{OID modèle}}">{{OID modèle de l'imprimante :}}</label>
+              <label class="col-sm-3 control-label">{{OID Modèle}}</label>
               <div class="col-sm-9">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_model"
                   placeholder="{{OID Modèle}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Numéro de série}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_serial"
+                  placeholder="{{OID Série}}" />
               </div>
             </div>
 

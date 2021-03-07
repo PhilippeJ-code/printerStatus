@@ -49,6 +49,7 @@
       {
           $adresseIp = $this->getConfiguration('adresse_ip', '');
           $oidModel = $this->getConfiguration('oid_model', '');
+          $oidSerial = $this->getConfiguration('oid_serial', '');
 
           if ($adresse_ip === '') {
               return;
@@ -65,7 +66,20 @@
                   $this->getCmd(null, 'model')->event($model);
               }
           }
-          return;
+
+          if ($oidSerial !== '') {
+            try {
+                $serial = snmpget($adresseIp, 'public', $oidSerial, 10000, 1);
+            } catch (Throwable $t) {
+                log::add('printerStatus', 'error', $t->getMessage());
+            } catch (Exception $e) {
+                log::add('printerStatus', 'error', $e->getMessage());
+            } finally {
+                $this->getCmd(null, 'serial')->event($serial);
+            }
+        }
+
+        return;
       }
 
       public static function cron15()
@@ -129,7 +143,21 @@
           $obj->setSubType('string');
           $obj->setLogicalId('model');
           $obj->save();
-      }
+
+          $obj = $this->getCmd(null, 'serial');
+          if (!is_object($obj)) {
+              $obj = new printerStatusCmd();
+              $obj->setName(__('Numéro de série', __FILE__));
+              $obj->setIsVisible(1);
+              $obj->setIsHistorized(0);
+          }
+          $obj->setEqLogic_id($this->getId());
+          $obj->setType('info');
+          $obj->setSubType('string');
+          $obj->setLogicalId('serial');
+          $obj->save();
+
+    }
 
       // Fonction exécutée automatiquement avant la suppression de l'équipement
       //
