@@ -55,6 +55,10 @@
           $oidJaune = $this->getConfiguration('oid_jaune', '');
           $oidMagenta = $this->getConfiguration('oid_magenta', '');
           $oidCyan = $this->getConfiguration('oid_cyan', '');
+          $oidNoirMax = $this->getConfiguration('oid_noir_max', '');
+          $oidJauneMax = $this->getConfiguration('oid_jaune_max', '');
+          $oidMagentaMax = $this->getConfiguration('oid_magenta_max', '');
+          $oidCyanMax = $this->getConfiguration('oid_cyan_max', '');
           $oidPagesCouleur = $this->getConfiguration('oid_pages_couleur', '');
           $oidPagesMonochrome = $this->getConfiguration('oid_pages_monochrome', '');
           $oidPagesTotal = $this->getConfiguration('oid_pages_total', '');
@@ -64,27 +68,25 @@
           $oidRefCyan = $this->getConfiguration('oid_ref_cyan', '');
 
           if ($adresseIp === '') {
-
-            $this->getCmd(null, 'model')->event('mod_');
-            $this->getCmd(null, 'serial')->event('ser_');
-            $this->getCmd(null, 'hote')->event('hot_');
+              $this->getCmd(null, 'model')->event('mod_');
+              $this->getCmd(null, 'serial')->event('ser_');
+              $this->getCmd(null, 'hote')->event('hot_');
             
-            $this->getCmd(null, 'pages_couleur')->event(162);
-            $this->getCmd(null, 'pages_monochrome')->event(24);
-            $this->getCmd(null, 'pages_total')->event(186);
+              $this->getCmd(null, 'pages_couleur')->event(162);
+              $this->getCmd(null, 'pages_monochrome')->event(24);
+              $this->getCmd(null, 'pages_total')->event(186);
   
-            $this->getCmd(null, 'ref_noir')->event('ref_noi');
-            $this->getCmd(null, 'ref_jaune')->event('ref_jau');
-            $this->getCmd(null, 'ref_magenta')->event('ref_mag');
-            $this->getCmd(null, 'ref_cyan')->event('ref_cya');
+              $this->getCmd(null, 'ref_noir')->event('ref_noi');
+              $this->getCmd(null, 'ref_jaune')->event('ref_jau');
+              $this->getCmd(null, 'ref_magenta')->event('ref_mag');
+              $this->getCmd(null, 'ref_cyan')->event('ref_cya');
   
-            $this->getCmd(null, 'noir')->event(rand(0,200));
-            $this->getCmd(null, 'jaune')->event(rand(0,100));
-            $this->getCmd(null, 'magenta')->event(rand(0,100));
-            $this->getCmd(null, 'cyan')->event(rand(0,100));
+              $this->getCmd(null, 'noir')->event(rand(0, 200));
+              $this->getCmd(null, 'jaune')->event(rand(0, 100));
+              $this->getCmd(null, 'magenta')->event(rand(0, 100));
+              $this->getCmd(null, 'cyan')->event(rand(0, 100));
 
-            return;
-
+              return;
           }
 
           snmp_set_valueretrieval(SNMP_VALUE_PLAIN);
@@ -125,6 +127,62 @@
               }
           }
 
+          $oidNoirMax = 1;
+          if ($oidNoirMax !== '') {
+              try {
+                  $noirMax = snmpget($adresseIp, 'public', $oidNoirMax, 50000, 1);
+              } catch (Throwable $t) {
+                  log::add('printerStatus', 'error', $t->getMessage());
+              } catch (Exception $e) {
+                  log::add('printerStatus', 'error', $e->getMessage());
+              }
+          }
+          if ($oidNoirMax == 0) {
+              $oidNoirMax = 1;
+          }
+
+          $oidJauneMax = 1;
+          if ($oidJaune !== '') {
+              try {
+                  $jaune = snmpget($adresseIp, 'public', $oidJaune, 50000, 1);
+              } catch (Throwable $t) {
+                  log::add('printerStatus', 'error', $t->getMessage());
+              } catch (Exception $e) {
+                  log::add('printerStatus', 'error', $e->getMessage());
+              }
+          }
+          if ($oidJauneMax == 0) {
+              $oidJauneMax = 1;
+          }
+
+          $oidMagentaMax = 1;
+          if ($oidMagenta !== '') {
+              try {
+                  $magenta = snmpget($adresseIp, 'public', $oidMagenta, 50000, 1);
+              } catch (Throwable $t) {
+                  log::add('printerStatus', 'error', $t->getMessage());
+              } catch (Exception $e) {
+                  log::add('printerStatus', 'error', $e->getMessage());
+              }
+          }
+          if ($oidMagentaMax == 0) {
+              $oidMagentaMax = 1;
+          }
+
+          $oidCyanMax = 1;
+          if ($oidCyan !== '') {
+              try {
+                  $cyan = snmpget($adresseIp, 'public', $oidCyan, 50000, 1);
+              } catch (Throwable $t) {
+                  log::add('printerStatus', 'error', $t->getMessage());
+              } catch (Exception $e) {
+                  log::add('printerStatus', 'error', $e->getMessage());
+              }
+          }
+          if ($oidCyanMax == 0) {
+              $oidCyanMax = 1;
+          }
+
           if ($oidNoir !== '') {
               try {
                   $noir = snmpget($adresseIp, 'public', $oidNoir, 50000, 1);
@@ -133,7 +191,7 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'noir')->event(intval($noir));
+                  $this->getCmd(null, 'noir')->event(intval($noir)*100/intval($noirMax));
               }
           }
 
@@ -145,7 +203,7 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'jaune')->event(intval($jaune));
+                  $this->getCmd(null, 'jaune')->event(intval($jaune)*100/intval($jauneMax));
               }
           }
 
@@ -157,7 +215,7 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'magenta')->event(intval($magenta));
+                  $this->getCmd(null, 'magenta')->event(intval($magenta)*100/intval($magentaMax));
               }
           }
 
@@ -169,7 +227,7 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'cyan')->event(intval($cyan));
+                  $this->getCmd(null, 'cyan')->event(intval($cyan)*100/intval($cyanMax));
               }
           }
 
@@ -262,19 +320,16 @@
 
       public static function cron()
       {
-        foreach (self::byType('printerStatus') as $printerStatus) 
-        {
-            if ($printerStatus->getIsEnable() == 1) 
-            {
-                $cmd = $printerStatus->getCmd(null, 'refresh');
-                if (!is_object($cmd)) 
-                {
-                    continue;
-                }
-                $cmd->execCmd();
-            }
-        }
-    }
+          foreach (self::byType('printerStatus') as $printerStatus) {
+              if ($printerStatus->getIsEnable() == 1) {
+                  $cmd = $printerStatus->getCmd(null, 'refresh');
+                  if (!is_object($cmd)) {
+                      continue;
+                  }
+                  $cmd->execCmd();
+              }
+          }
+      }
     
       // Fonction exécutée automatiquement avant la création de l'équipement
       //

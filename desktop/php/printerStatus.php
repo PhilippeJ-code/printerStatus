@@ -162,6 +162,34 @@
               </div>
             </div>
             <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Toner noir max}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_noir_max"
+                  placeholder="{{OID Toner noir max}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Toner jaune max}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_jaune_max"
+                  placeholder="{{OID Toner jaune max}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Toner magenta max}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_magenta_max"
+                  placeholder="{{OID Toner magenta max}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Toner cyan max}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_cyan_max"
+                  placeholder="{{OID Toner cyan max}}" />
+              </div>
+            </div>
+            <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Pages couleur}}</label>
               <div class="col-sm-9">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_pages_couleur"
