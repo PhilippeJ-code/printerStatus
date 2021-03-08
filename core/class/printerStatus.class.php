@@ -78,12 +78,10 @@
             $this->getCmd(null, 'ref_magenta')->event('ref_mag');
             $this->getCmd(null, 'ref_cyan')->event('ref_cya');
   
-            $this->getCmd(null, 'noir')->event(85);
-            $this->getCmd(null, 'jaune')->event(35);
-            $this->getCmd(null, 'magenta')->event(55);
-            $this->getCmd(null, 'cyan')->event(85);
-
-            log::add('printerStatus', 'debug', 'refresh');
+            $this->getCmd(null, 'noir')->event(rand(0,200));
+            $this->getCmd(null, 'jaune')->event(rand(0,100));
+            $this->getCmd(null, 'magenta')->event(rand(0,100));
+            $this->getCmd(null, 'cyan')->event(rand(0,100));
 
             return;
 
@@ -260,9 +258,21 @@
           return;
       }
 
-      public static function cron15()
+      public static function cron()
       {
-      }
+        foreach (self::byType('printerStatus') as $printerStatus) 
+        {
+            if ($printerStatus->getIsEnable() == 1) 
+            {
+                $cmd = $printerStatus->getCmd(null, 'refresh');
+                if (!is_object($cmd)) 
+                {
+                    continue;
+                }
+                $cmd->execCmd();
+            }
+        }
+    }
     
       // Fonction exécutée automatiquement avant la création de l'équipement
       //
