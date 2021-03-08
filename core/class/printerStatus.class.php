@@ -81,7 +81,7 @@
               $this->getCmd(null, 'ref_magenta')->event('ref_mag');
               $this->getCmd(null, 'ref_cyan')->event('ref_cya');
   
-              $this->getCmd(null, 'noir')->event(rand(0, 200));
+              $this->getCmd(null, 'noir')->event(rand(0, 100));
               $this->getCmd(null, 'jaune')->event(rand(0, 100));
               $this->getCmd(null, 'magenta')->event(rand(0, 100));
               $this->getCmd(null, 'cyan')->event(rand(0, 100));
@@ -127,7 +127,7 @@
               }
           }
 
-          $oidNoirMax = 1;
+          $noirMax = 1;
           if ($oidNoirMax !== '') {
               try {
                   $noirMax = snmpget($adresseIp, 'public', $oidNoirMax, 50000, 1);
@@ -137,50 +137,50 @@
                   log::add('printerStatus', 'error', $e->getMessage());
               }
           }
-          if ($oidNoirMax == 0) {
-              $oidNoirMax = 1;
+          if ($noirMax == 0) {
+              $noirMax = 1;
           }
 
-          $oidJauneMax = 1;
+          $jauneMax = 1;
           if ($oidJaune !== '') {
               try {
-                  $jaune = snmpget($adresseIp, 'public', $oidJaune, 50000, 1);
+                  $jauneMax = snmpget($adresseIp, 'public', $oidJauneMax, 50000, 1);
               } catch (Throwable $t) {
                   log::add('printerStatus', 'error', $t->getMessage());
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               }
           }
-          if ($oidJauneMax == 0) {
-              $oidJauneMax = 1;
+          if ($jauneMax == 0) {
+              $jauneMax = 1;
           }
 
-          $oidMagentaMax = 1;
+          $magentaMax = 1;
           if ($oidMagenta !== '') {
               try {
-                  $magenta = snmpget($adresseIp, 'public', $oidMagenta, 50000, 1);
+                  $magentaMax = snmpget($adresseIp, 'public', $oidMagentaMax, 50000, 1);
               } catch (Throwable $t) {
                   log::add('printerStatus', 'error', $t->getMessage());
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               }
           }
-          if ($oidMagentaMax == 0) {
-              $oidMagentaMax = 1;
+          if ($magentaMax == 0) {
+              $magentaMax = 1;
           }
 
-          $oidCyanMax = 1;
-          if ($oidCyan !== '') {
+          $cyanMax = 1;
+          if ($oidCyanMax !== '') {
               try {
-                  $cyan = snmpget($adresseIp, 'public', $oidCyan, 50000, 1);
+                  $cyanMax = snmpget($adresseIp, 'public', $oidCyanMax, 50000, 1);
               } catch (Throwable $t) {
                   log::add('printerStatus', 'error', $t->getMessage());
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               }
           }
-          if ($oidCyanMax == 0) {
-              $oidCyanMax = 1;
+          if ($cyanMax == 0) {
+              $cyanMax = 1;
           }
 
           if ($oidNoir !== '') {
@@ -190,7 +190,7 @@
                   log::add('printerStatus', 'error', $t->getMessage());
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
-              } finally {
+              } finally {                    
                   $this->getCmd(null, 'noir')->event(intval($noir)*100/intval($noirMax));
               }
           }
