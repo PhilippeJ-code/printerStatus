@@ -15,7 +15,8 @@
 
     <div class="classContenant#uid#">
         <span class="classTitre#uid#">Caractéristiques</span></br>
-        <span class="classSousTitre#uid#">Nom du système</span><span class="classValeur#uid#" id="idSystemName#uid#"></span></br>
+        <span class="classSousTitre#uid#">Nom du système</span><span class="classValeur#uid#"
+            id="idSystemName#uid#"></span></br>
         <span class="classSousTitre#uid#">Modèle</span><span class="classValeur#uid#" id="idModel#uid#"></span></br>
         <span class="classSousTitre#uid#">Numéro de série</span><span class="classValeur#uid#"
             id="idSerial#uid#"></span></br>
@@ -28,37 +29,33 @@
         <span class="classSousTitre#uid#">Total</span><span class="classValeur#uid#" id="idPagesTotal#uid#"></span></br>
 
         <span class="classTitre#uid#">Etat Toner</span></br>
-
-        <div class='classToners#uid#'>
-            <div class='progresswrapper_5#uid#'>
+            <div class='progresswrapper#uid#'>
                 <div id='idNoirProgress#uid#' class='progress#uid# black#uid#'>
                     <div id='idNoirLabel#uid#' class='progress-label#uid#'></div>
                 </div>
-            </div>
-            <div class='progresswrapper_30#uid#'>
+            </div><br>
+            <div class='progresswrapper#uid#'>
                 <div id='idJauneProgress#uid#' class='progress#uid# yellow#uid#'>
                     <div id='idJauneLabel#uid#' class='progress-label#uid#'></div>
                 </div>
-            </div>
-            <div class='progresswrapper_55#uid#'>
+            </div><br>
+            <div class='progresswrapper#uid#'>
                 <div id='idMagentaProgress#uid#' class='progress#uid# magenta#uid#'>
                     <div id='idMagentaLabel#uid#' class='progress-label#uid#'></div>
                 </div>
-            </div>
-            <div class='progresswrapper_80#uid#'>
+            </div><br>
+            <div class='progresswrapper#uid#'>
                 <div id='idCyanProgress#uid#' class='progress#uid# cyan#uid#'>
                     <div id='idCyanLabel#uid#' class='progress-label#uid#'></div>
                 </div>
-            </div>
-        </div>
-
+            </div><br><br>
         <span class="classTitre#uid#">Références Toner</span></br>
         <span class="classSousTitre#uid#">Noir</span><span class="classValeur#uid#" id="idRefNoir#uid#"></span></br>
         <span class="classSousTitre#uid#">Jaune</span><span class="classValeur#uid#" id="idRefJaune#uid#"></span></br>
         <span class="classSousTitre#uid#">Magenta</span><span class="classValeur#uid#"
             id="idRefMagenta#uid#"></span></br>
         <span class="classSousTitre#uid#">Cyan</span><span class="classValeur#uid#" id="idRefCyan#uid#"></span></br>
-        
+
     </div>
 
     <style>
@@ -101,47 +98,15 @@
             color: #808080;
         }
 
-        .classToners#uid#{
-            position: relative;
+        .progresswrapper#uid# {
+            position: absolute;
+            display: inline-block;
+            width: 96%;
+            height: 25px !important;
+            left: 2%;
             padding-top: 5px;
         }
 
-        .linelabel#uid# {
-            position: absolute;
-            width: 96%;
-            left: 2%;
-        }
-
-        .progresswrapper_5#uid# {
-            position: absolute;
-            display: inline-block;
-            width: 96%;
-            left: 2%;
-            top: 5px;
-        }
-
-        .progresswrapper_30#uid# {
-            position: absolute;
-            display: inline-block;
-            width: 96%;
-            left: 2%;
-            top: 30px;
-        }
-
-        .progresswrapper_55#uid# {
-            position: absolute;
-            display: inline-block;
-            width: 96%;
-            left: 2%;
-            top: 55px;
-        }
-        .progresswrapper_80#uid# {
-            position: absolute;
-            display: inline-block;
-            width: 96%;
-            left: 2%;
-            top: 80px;
-        }
         .progress#uid#{            
             height:20px !important;
         }
