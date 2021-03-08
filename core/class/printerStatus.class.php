@@ -239,7 +239,7 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'pages_couleur')->event(intval($pages_couleur));
+                  $this->getCmd(null, 'pages_couleur')->event(intval($pagesCouleur));
               }
           }
 
@@ -251,7 +251,7 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'pages_monochrome')->event(intval($pages_monochrome));
+                  $this->getCmd(null, 'pages_monochrome')->event(intval($pagesMonochrome));
               }
           }
 
@@ -263,7 +263,7 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'pages_total')->event(intval($pages_total));
+                  $this->getCmd(null, 'pages_total')->event(intval($pagesTotal));
               }
           }
 
