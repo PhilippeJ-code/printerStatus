@@ -22,6 +22,7 @@ if (!isConnect())
   include_file('desktop', '404', 'php');
   die();
 }
+?>
 
 <script>
 
@@ -89,5 +90,5 @@ if (!isConnect())
     });
 
 </script>
-?>
+
 
