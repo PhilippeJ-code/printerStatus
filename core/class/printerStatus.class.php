@@ -95,6 +95,7 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
+                  $model = substr($model, strpos($model, ':')+2);
                   $this->getCmd(null, 'model')->event($model);
               }
           }
@@ -107,7 +108,8 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'serial')->event($serial);
+                $serial = substr($serial, strpos($serial, ':')+2);
+                $this->getCmd(null, 'serial')->event($serial);
               }
           }
 
@@ -119,7 +121,8 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'hote')->event($hote);
+                $hote = substr($hote, strpos($hote, ':')+2);
+                $this->getCmd(null, 'hote')->event($hote);
               }
           }
 
@@ -131,7 +134,8 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'noir')->event(intval($noir));
+                $noir = substr($noir, strpos($noir, ':')+2);
+                $this->getCmd(null, 'noir')->event(intval($noir));
               }
           }
 
@@ -143,7 +147,8 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'jaune')->event(intval($jaune));
+                $jaune = substr($jaune, strpos($jaune, ':')+2);
+                $this->getCmd(null, 'jaune')->event(intval($jaune));
               }
           }
 
@@ -155,7 +160,8 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'magenta')->event(intval($magenta));
+                $magenta = substr($magenta, strpos($magenta, ':')+2);
+                $this->getCmd(null, 'magenta')->event(intval($magenta));
               }
           }
 
@@ -167,7 +173,8 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'cyan')->event(intval($cyan));
+                $cyan = substr($cyan, strpos($cyan, ':')+2);
+                $this->getCmd(null, 'cyan')->event(intval($cyan));
               }
           }
 
@@ -179,7 +186,8 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'pages_couleur')->event(intval($pages_couleur));
+                $pages_couleur = substr($pages_couleur, strpos($pages_couleur, ':')+2);
+                $this->getCmd(null, 'pages_couleur')->event(intval($pages_couleur));
               }
           }
 
@@ -191,7 +199,8 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'pages_monochrome')->event(intval($pages_monochrome));
+                $pages_monochrome = substr($pages_monochrome, strpos($pages_monochrome, ':')+2);
+                $this->getCmd(null, 'pages_monochrome')->event(intval($pages_monochrome));
               }
           }
 
@@ -203,7 +212,8 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'pages_total')->event(intval($pages_total));
+                $pages_total = substr($pages_total, strpos($pages_total, ':')+2);
+                $this->getCmd(null, 'pages_total')->event(intval($pages_total));
               }
           }
 
@@ -215,7 +225,8 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'ref_noir')->event($refNoir);
+                $refNoir = substr($refNoir, strpos($refNoir, ':')+2);
+                $this->getCmd(null, 'ref_noir')->event($refNoir);
               }
           }
 
@@ -227,7 +238,8 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'ref_jaune')->event($refJaune);
+                $refJaune = substr($refJaune, strpos($refJaune, ':')+2);
+                $this->getCmd(null, 'ref_jaune')->event($refJaune);
               }
           }
 
@@ -239,7 +251,8 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'ref_magenta')->event($refMagenta);
+                $refMagenta = substr($refMagenta, strpos($refMagenta, ':')+2);
+                $this->getCmd(null, 'ref_magenta')->event($refMagenta);
               }
           }
 
@@ -251,7 +264,8 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'ref_cyan')->event($refCyan);
+                $refCyan = substr($refCyan, strpos($refCyan, ':')+2);
+                $this->getCmd(null, 'ref_cyan')->event($refCyan);
               }
           }
 
