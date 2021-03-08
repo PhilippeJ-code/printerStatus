@@ -63,8 +63,30 @@
           $oidRefMagenta = $this->getConfiguration('oid_ref_magenta', '');
           $oidRefCyan = $this->getConfiguration('oid_ref_cyan', '');
 
-          if ($adresse_ip === '') {
-              return;
+          if ($adresseIp === '') {
+
+            $this->getCmd(null, 'model')->event('mod_');
+            $this->getCmd(null, 'serial')->event('ser_');
+            $this->getCmd(null, 'hote')->event('hot_');
+            
+            $this->getCmd(null, 'pages_couleur')->event(162);
+            $this->getCmd(null, 'pages_monochrome')->event(24);
+            $this->getCmd(null, 'pages_total')->event(186);
+  
+            $this->getCmd(null, 'ref_noir')->event('ref_noi');
+            $this->getCmd(null, 'ref_jaune')->event('ref_jau');
+            $this->getCmd(null, 'ref_magenta')->event('ref_mag');
+            $this->getCmd(null, 'ref_cyan')->event('ref_cya');
+  
+            $this->getCmd(null, 'noir')->event(85);
+            $this->getCmd(null, 'jaune')->event(35);
+            $this->getCmd(null, 'magenta')->event(55);
+            $this->getCmd(null, 'cyan')->event(85);
+
+            log::add('printerStatus', 'debug', 'refresh');
+
+            return;
+
           }
 
           if ($oidModel !== '') {

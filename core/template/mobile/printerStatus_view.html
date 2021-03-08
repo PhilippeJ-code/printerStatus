@@ -1,26 +1,234 @@
-<div class="eqLogic eqLogic-widget allowResize allowReorderCmd #custom_layout# #eqLogic_class# #class#" data-eqType="#eqType#" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#" data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#" style="width: #width#;height: #height#;#style#">
-	<center class="widget-name">
-		<span class="warning" title="#alert_name#">
-			<i class='#alert_icon#'></i>
-		</span>
-		<span class="cmd refresh pull-right cursor" data-cmd_id="#refresh_id#">
-			<i class="fas fa-sync"></i>
-		</span>
-		<span class="reportModeVisible">#name_display# <span class="object_name">#object_name#</span></span>
-		<a href="#eqLink#" class="reportModeHidden">#name_display# <span class="object_name">#object_name#</span></a>
-	</center>
-	<div class="#isVerticalAlign#">
-		<center>
-			#cmd#
-		</center>
-	</div>
-	<script>
-		if ('#refresh_id#' != ''){
-			$('.eqLogic[data-eqLogic_uid=#uid#] .refresh').on('click', function () {
-				jeedom.cmd.execute({id: '#refresh_id#'});
-			});
-		}else{
-			$('.eqLogic[data-eqLogic_uid=#uid#] .refresh').remove();
-		}
-	</script>
+<div class="eqLogic eqLogic-widget allowResize allowReorderCmd #custom_layout# #eqLogic_class# #class#"
+    data-eqType="#eqType#" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#"
+    data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#"
+    style="width: #width#;height: #height#;#style#">
+    <center class="widget-name">
+        <span class="warning" title="#alert_name#">
+            <i class='#alert_icon#'></i>
+        </span>
+        <span class="cmd refresh pull-right cursor" data-cmd_id="#refresh_id#">
+            <i class="fas fa-sync"></i>
+        </span>
+        <span class="reportModeVisible">#name_display# <span class="object_name">#object_name#</span></span>
+        <a href="#eqLink#" class="reportModeHidden">#name_display# <span class="object_name">#object_name#</span></a>
+    </center>
+
+    <div class="classContenant#uid#">
+        <span class="classTitre#uid#">Caractéristiques</span></br>
+        <span class="classSousTitre#uid#">Modèle</span><span class="classValeur#uid#" id="idModel#uid#"></span></br>
+        <span class="classSousTitre#uid#">Numéro de série</span><span class="classValeur#uid#"
+            id="idSerial#uid#"></span></br>
+        <span class="classSousTitre#uid#">Nom d'hôte</span><span class="classValeur#uid#" id="idHote#uid#"></span></br>
+        <span class="classTitre#uid#">Références Toner</span></br>
+        <span class="classSousTitre#uid#">Noir</span><span class="classValeur#uid#" id="idRefNoir#uid#"></span></br>
+        <span class="classSousTitre#uid#">Jaune</span><span class="classValeur#uid#" id="idRefJaune#uid#"></span></br>
+        <span class="classSousTitre#uid#">Magenta</span><span class="classValeur#uid#"
+            id="idRefMagenta#uid#"></span></br>
+        <span class="classSousTitre#uid#">Cyan</span><span class="classValeur#uid#" id="idRefCyan#uid#"></span></br>
+        <span class="classTitre#uid#">Pages imprimées</span></br>
+        <span class="classSousTitre#uid#">Couleur</span><span class="classValeur#uid#"
+            id="idPagesCouleur#uid#"></span></br>
+        <span class="classSousTitre#uid#">Monochrome</span><span class="classValeur#uid#"
+            id="idPagesMonochrome#uid#"></span></br>
+        <span class="classSousTitre#uid#">Total</span><span class="classValeur#uid#" id="idPagesTotal#uid#"></span></br>
+
+        <span class="classTitre#uid#">Etat Toner</span></br>
+        <div class='black#uid# linelabel#uid#'>
+            <div class='progresswrapper#uid#'>             
+                <div id='idNoirProgress#uid#' class='progress#uid# black#uid#'>
+                    <div id='idNoirLabel#uid#' class='progress-label#uid#'></div>
+                </div>
+            </div>
+        </div></br></br>
+        <div class='yellow#uid# linelabel#uid#'>
+            <div class='progresswrapper#uid#'>             
+                <div id='idJauneProgress#uid#' class='progress#uid# yellow#uid#'>
+                    <div id='idJauneLabel#uid#' class='progress-label#uid#'></div>
+                </div>
+            </div>
+        </div></br></br>
+        <div class='magenta#uid# linelabel#uid#'>
+            <div class='progresswrapper#uid#'>             
+                <div id='idMagentaProgress#uid#' class='progress#uid# magenta#uid#'>
+                    <div id='idMagentaLabel#uid#' class='progress-label#uid#'></div>
+                </div>
+            </div>
+        </div></br></br>
+        <div class='cyan#uid# linelabel#uid#'>
+            <div class='progresswrapper#uid#'>             
+                <div id='idCyanProgress#uid#' class='progress#uid# cyan#uid#'>
+                    <div id='idCyanLabel#uid#' class='progress-label#uid#'></div>
+                </div>
+            </div>
+
+        </div></br>
+
+    </div>
+
+    <style>
+        .classContenant#uid# {
+            width: 100%;
+            height: 100%;
+        }
+
+        .classTitre#uid# {
+            position: absolute;
+            width: 96%;
+            left: 2%;
+            text-align: left;
+            font-size: 14px;
+            background-color: #E0E0E0;
+            color: #808080;
+        }
+
+        .classSousTitre#uid# {
+            position: absolute;
+            width: 100%;
+            left: 20px;
+            text-align: left;
+            font-size: 14px;
+            color: #000000;
+        }
+
+        .classProg#uid# {
+            width: 220px;
+            height: 40px;
+            margin-left: 20px;
+        }
+
+        .classValeur#uid# {
+            position: absolute;
+            width: 100%;
+            right: 20px;
+            text-align: right;
+            font-size: 14px;
+            color: #808080;
+        }
+
+        .linelabel#uid# {
+            position: absolute;
+            left:2%;
+            width: 96%;
+            padding-top: 5px;
+         }
+
+        .progresswrapper#uid# {
+            display: inline-block;
+            width: 100%;
+            height: 26px;
+        }
+
+        .progress#uid#{
+            height:20px !important;
+        }
+
+        .progress-label#uid# {
+            text-align: center;
+            font-size: 10pt;
+            width: 100%;
+            float: left;
+        }
+
+        .black#uid# .ui-widget-header{
+            background-color:black !important;
+        }
+
+        .yellow#uid# .ui-widget-header{
+            background-color:yellow !important;
+        }
+
+        .magenta#uid# .ui-widget-header{
+            background-color:magenta !important;
+        }
+
+        .cyan#uid# .ui-widget-header{
+            background-color:cyan !important;
+        }
+
+    </style>
+    <script>
+        if ('#refresh_id#' != '') {
+            $('.eqLogic[data-eqLogic_uid=#uid#] .refresh').on('click', function () {
+                jeedom.cmd.execute({ id: '#refresh_id#' });
+            });
+        } else {
+            $('.eqLogic[data-eqLogic_uid=#uid#] .refresh').remove();
+        }
+
+        jeedom.cmd.update['#idModel#'] = function (_options) {
+            $('#idModel#uid#').html(_options.display_value);
+        }
+        jeedom.cmd.update['#idModel#']({ display_value: '#model#' });
+
+        jeedom.cmd.update['#idSerial#'] = function (_options) {
+            $('#idSerial#uid#').html(_options.display_value);
+        }
+        jeedom.cmd.update['#idSerial#']({ display_value: '#serial#' });
+
+        jeedom.cmd.update['#idHote#'] = function (_options) {
+            $('#idHote#uid#').html(_options.display_value);
+        }
+        jeedom.cmd.update['#idHote#']({ display_value: '#hote#' });
+
+        jeedom.cmd.update['#idRefNoir#'] = function (_options) {
+            $('#idRefNoir#uid#').html(_options.display_value);
+        }
+        jeedom.cmd.update['#idRefNoir#']({ display_value: '#refNoir#' });
+
+        jeedom.cmd.update['#idRefJaune#'] = function (_options) {
+            $('#idRefJaune#uid#').html(_options.display_value);
+        }
+        jeedom.cmd.update['#idRefJaune#']({ display_value: '#refJaune#' });
+
+        jeedom.cmd.update['#idRefMagenta#'] = function (_options) {
+            $('#idRefMagenta#uid#').html(_options.display_value);
+        }
+        jeedom.cmd.update['#idRefMagenta#']({ display_value: '#refMagenta#' });
+
+        jeedom.cmd.update['#idRefCyan#'] = function (_options) {
+            $('#idRefCyan#uid#').html(_options.display_value);
+        }
+        jeedom.cmd.update['#idRefCyan#']({ display_value: '#refCyan#' });
+
+        jeedom.cmd.update['#idPagesCouleur#'] = function (_options) {
+            $('#idPagesCouleur#uid#').html(_options.display_value);
+        }
+        jeedom.cmd.update['#idPagesCouleur#']({ display_value: '#pagesCouleur#' });
+
+        jeedom.cmd.update['#idPagesMonochrome#'] = function (_options) {
+            $('#idPagesMonochrome#uid#').html(_options.display_value);
+        }
+        jeedom.cmd.update['#idPagesMonochrome#']({ display_value: '#pagesMonochrome#' });
+
+        jeedom.cmd.update['#idPagesTotal#'] = function (_options) {
+            $('#idPagesTotal#uid#').html(_options.display_value);
+        }
+        jeedom.cmd.update['#idPagesTotal#']({ display_value: '#pagesTotal#' });
+
+        jeedom.cmd.update['#idNoir#'] = function (_options) {
+            $('#idNoirLabel#uid#').html('Noir : ' + _options.display_value + "%");
+            $('#idNoirProgress#uid#').progressbar({value:_options.display_value})
+        }
+        jeedom.cmd.update['#idNoir#']({ display_value: #noir# });
+
+        jeedom.cmd.update['#idJaune#'] = function (_options) {
+            $('#idJauneLabel#uid#').html('Jaune : ' + _options.display_value + "%");
+            $('#idJauneProgress#uid#').progressbar({value:_options.display_value})
+        }
+        jeedom.cmd.update['#idJaune#']({ display_value: #jaune# });
+
+        jeedom.cmd.update['#idMagenta#'] = function (_options) {
+            $('#idMagentaLabel#uid#').html('Magenta : ' + _options.display_value + "%");
+            $('#idMagentaProgress#uid#').progressbar({value:_options.display_value})
+        }
+        jeedom.cmd.update['#idMagenta#']({ display_value: #magenta# });
+
+        jeedom.cmd.update['#idCyan#'] = function (_options) {
+            $('#idCyanLabel#uid#').html('Cyan : ' + _options.display_value + "%");
+            $('#idCyanProgress#uid#').progressbar({value:_options.display_value})
+        }
+        jeedom.cmd.update['#idCyan#']({ display_value: #cyan# });
+
+    </script>
+
 </div>
