@@ -126,6 +126,93 @@
                   placeholder="{{OID Série}}" />
               </div>
             </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Nom d'hôte}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_hote"
+                  placeholder="{{OID Nom d'hôte}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Toner noir}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_noir"
+                  placeholder="{{OID Toner noir}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Toner jaune}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_jaune"
+                  placeholder="{{OID Toner jaune}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Toner magenta}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_magenta"
+                  placeholder="{{OID Toner magenta}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Toner cyan}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_cyan"
+                  placeholder="{{OID Toner cyan}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Pages couleur}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_pages_couleur"
+                  placeholder="{{OID Pages couleur}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Pages monochrome}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_pages_monochrome"
+                  placeholder="{{OID Pages monochrome}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Pages total}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_pages_total"
+                  placeholder="{{OID Pages total}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Référence Toner noir}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_ref_noir"
+                  placeholder="{{OID Référence Toner noir}}" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Référence Toner jaune}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_ref_jaune"
+                  placeholder="{{OID Référence Toner jaune}}" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Référence Toner magenta}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_ref_magenta"
+                  placeholder="{{OID Référence Toner magenta}}" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Référence Toner cyan}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_ref_cyan"
+                  placeholder="{{OID Référence Toner cyan}}" />
+              </div>
+            </div>
 
           </fieldset>
         </form>
