@@ -48,6 +48,7 @@
       public function rafraichir()
       {
           $adresseIp = $this->getConfiguration('adresse_ip', '');
+          $oidSystemName = $this->getConfiguration('oid_system_name', '');
           $oidModel = $this->getConfiguration('oid_model', '');
           $oidSerial = $this->getConfiguration('oid_serial', '');
           $oidHote = $this->getConfiguration('oid_hote', '');
@@ -68,29 +69,23 @@
           $oidRefCyan = $this->getConfiguration('oid_ref_cyan', '');
 
           if ($adresseIp === '') {
-              $this->getCmd(null, 'model')->event('mod_');
-              $this->getCmd(null, 'serial')->event('ser_');
-              $this->getCmd(null, 'hote')->event('hot_');
-            
-              $this->getCmd(null, 'pages_couleur')->event(162);
-              $this->getCmd(null, 'pages_monochrome')->event(24);
-              $this->getCmd(null, 'pages_total')->event(186);
-  
-              $this->getCmd(null, 'ref_noir')->event('ref_noi');
-              $this->getCmd(null, 'ref_jaune')->event('ref_jau');
-              $this->getCmd(null, 'ref_magenta')->event('ref_mag');
-              $this->getCmd(null, 'ref_cyan')->event('ref_cya');
-  
-              $this->getCmd(null, 'noir')->event(rand(0, 100));
-              $this->getCmd(null, 'jaune')->event(rand(0, 100));
-              $this->getCmd(null, 'magenta')->event(rand(0, 100));
-              $this->getCmd(null, 'cyan')->event(rand(0, 100));
-
               return;
           }
 
           snmp_set_valueretrieval(SNMP_VALUE_PLAIN);
           
+          if ($oidSystemName !== '') {
+              try {
+                  $systemName = snmpget($adresseIp, 'public', $oidSystemName, 50000, 1);
+              } catch (Throwable $t) {
+                  log::add('printerStatus', 'error', $t->getMessage());
+              } catch (Exception $e) {
+                  log::add('printerStatus', 'error', $e->getMessage());
+              } finally {
+                  $this->getCmd(null, 'system_name')->event($systemName);
+              }
+          }
+
           if ($oidModel !== '') {
               try {
                   $model = snmpget($adresseIp, 'public', $oidModel, 50000, 1);
@@ -190,7 +185,7 @@
                   log::add('printerStatus', 'error', $t->getMessage());
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
-              } finally {                    
+              } finally {
                   $this->getCmd(null, 'noir')->event(intval($noir)*100/intval($noirMax));
               }
           }
@@ -318,7 +313,7 @@
           return;
       }
 
-      public static function cron()
+      public static function periodique()
       {
           foreach (self::byType('printerStatus') as $printerStatus) {
               if ($printerStatus->getIsEnable() == 1) {
@@ -330,7 +325,42 @@
               }
           }
       }
+
+      public static function cron()
+      {
+          self::periodique();
+      }
     
+      public static function cron5()
+      {
+          self::periodique();
+      }
+    
+      public static function cron10()
+      {
+          self::periodique();
+      }
+    
+      public static function cron15()
+      {
+          self::periodique();
+      }
+    
+      public static function cron30()
+      {
+          self::periodique();
+      }
+    
+      public static function cronHourly()
+      {
+          self::periodique();
+      }
+    
+      public static function cronDaily()
+      {
+          self::periodique();
+      }
+
       // Fonction exécutée automatiquement avant la création de l'équipement
       //
       public function preInsert()
@@ -374,6 +404,19 @@
           $obj->setLogicalId('refresh');
           $obj->setType('action');
           $obj->setSubType('other');
+          $obj->save();
+
+          $obj = $this->getCmd(null, 'system_name');
+          if (!is_object($obj)) {
+              $obj = new printerStatusCmd();
+              $obj->setName(__('Nom système', __FILE__));
+              $obj->setIsVisible(1);
+              $obj->setIsHistorized(0);
+          }
+          $obj->setEqLogic_id($this->getId());
+          $obj->setType('info');
+          $obj->setSubType('string');
+          $obj->setLogicalId('system_name');
           $obj->save();
 
           $obj = $this->getCmd(null, 'model');
@@ -589,6 +632,10 @@
           }
           $version = jeedom::versionAlias($_version);
  
+          $obj = $this->getCmd(null, 'system_name');
+          $replace["#systemName#"] = $obj->execCmd();
+          $replace["#idSystemName#"] = $obj->getId();
+    
           $obj = $this->getCmd(null, 'model');
           $replace["#model#"] = $obj->execCmd();
           $replace["#idModel#"] = $obj->getId();

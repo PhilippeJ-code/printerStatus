@@ -15,16 +15,11 @@
 
     <div class="classContenant#uid#">
         <span class="classTitre#uid#">Caractéristiques</span></br>
+        <span class="classSousTitre#uid#">Nom du système</span><span class="classValeur#uid#" id="idSystemName#uid#"></span></br>
         <span class="classSousTitre#uid#">Modèle</span><span class="classValeur#uid#" id="idModel#uid#"></span></br>
         <span class="classSousTitre#uid#">Numéro de série</span><span class="classValeur#uid#"
             id="idSerial#uid#"></span></br>
         <span class="classSousTitre#uid#">Nom d'hôte</span><span class="classValeur#uid#" id="idHote#uid#"></span></br>
-        <span class="classTitre#uid#">Références Toner</span></br>
-        <span class="classSousTitre#uid#">Noir</span><span class="classValeur#uid#" id="idRefNoir#uid#"></span></br>
-        <span class="classSousTitre#uid#">Jaune</span><span class="classValeur#uid#" id="idRefJaune#uid#"></span></br>
-        <span class="classSousTitre#uid#">Magenta</span><span class="classValeur#uid#"
-            id="idRefMagenta#uid#"></span></br>
-        <span class="classSousTitre#uid#">Cyan</span><span class="classValeur#uid#" id="idRefCyan#uid#"></span></br>
         <span class="classTitre#uid#">Pages imprimées</span></br>
         <span class="classSousTitre#uid#">Couleur</span><span class="classValeur#uid#"
             id="idPagesCouleur#uid#"></span></br>
@@ -56,6 +51,14 @@
                 </div>
             </div>
         </div>
+
+        <span class="classTitre#uid#">Références Toner</span></br>
+        <span class="classSousTitre#uid#">Noir</span><span class="classValeur#uid#" id="idRefNoir#uid#"></span></br>
+        <span class="classSousTitre#uid#">Jaune</span><span class="classValeur#uid#" id="idRefJaune#uid#"></span></br>
+        <span class="classSousTitre#uid#">Magenta</span><span class="classValeur#uid#"
+            id="idRefMagenta#uid#"></span></br>
+        <span class="classSousTitre#uid#">Cyan</span><span class="classValeur#uid#" id="idRefCyan#uid#"></span></br>
+        
     </div>
 
     <style>
@@ -174,6 +177,11 @@
         } else {
             $('.eqLogic[data-eqLogic_uid=#uid#] .refresh').remove();
         }
+
+        jeedom.cmd.update['#idSystemName#'] = function (_options) {
+            $('#idSystemName#uid#').html(_options.display_value);
+        }
+        jeedom.cmd.update['#idSystemName#']({ display_value: '#systemName#' });
 
         jeedom.cmd.update['#idModel#'] = function (_options) {
             $('#idModel#uid#').html(_options.display_value);

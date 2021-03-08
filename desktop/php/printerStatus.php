@@ -113,6 +113,13 @@
               </div>
             </div>
             <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Nom système}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_system_name"
+                  placeholder="{{OID Nom système}}" />
+              </div>
+            </div>
+            <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Modèle}}</label>
               <div class="col-sm-9">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_model"
@@ -134,59 +141,59 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-3 control-label">{{OID Toner noir}}</label>
+              <label class="col-sm-3 control-label">{{OID Niveau toner noir}}</label>
               <div class="col-sm-9">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_noir"
-                  placeholder="{{OID Toner noir}}" />
+                  placeholder="{{OID Niveau toner noir}}" />
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-3 control-label">{{OID Toner jaune}}</label>
+              <label class="col-sm-3 control-label">{{OID Niveau toner jaune}}</label>
               <div class="col-sm-9">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_jaune"
-                  placeholder="{{OID Toner jaune}}" />
+                  placeholder="{{OID Niveau toner jaune}}" />
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-3 control-label">{{OID Toner magenta}}</label>
+              <label class="col-sm-3 control-label">{{OID Niveau toner magenta}}</label>
               <div class="col-sm-9">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_magenta"
-                  placeholder="{{OID Toner magenta}}" />
+                  placeholder="{{OID Niveau toner magenta}}" />
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-3 control-label">{{OID Toner cyan}}</label>
+              <label class="col-sm-3 control-label">{{OID Niveau toner cyan}}</label>
               <div class="col-sm-9">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_cyan"
-                  placeholder="{{OID Toner cyan}}" />
+                  placeholder="{{OID Niveau toner cyan}}" />
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-3 control-label">{{OID Toner noir max}}</label>
+              <label class="col-sm-3 control-label">{{OID Niveau toner noir max}}</label>
               <div class="col-sm-9">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_noir_max"
-                  placeholder="{{OID Toner noir max}}" />
+                  placeholder="{{OID Niveau toner noir max}}" />
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-3 control-label">{{OID Toner jaune max}}</label>
+              <label class="col-sm-3 control-label">{{OID Niveau toner jaune max}}</label>
               <div class="col-sm-9">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_jaune_max"
-                  placeholder="{{OID Toner jaune max}}" />
+                  placeholder="{{OID Niveau toner jaune max}}" />
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-3 control-label">{{OID Toner magenta max}}</label>
+              <label class="col-sm-3 control-label">{{OID Niveau toner magenta max}}</label>
               <div class="col-sm-9">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_magenta_max"
-                  placeholder="{{OID Toner magenta max}}" />
+                  placeholder="{{OID Niveau toner magenta max}}" />
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-3 control-label">{{OID Toner cyan max}}</label>
+              <label class="col-sm-3 control-label">{{OID Niveau toner cyan max}}</label>
               <div class="col-sm-9">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_cyan_max"
-                  placeholder="{{OID Toner cyan max}}" />
+                  placeholder="{{OID Niveau toner cyan max}}" />
               </div>
             </div>
             <div class="form-group">
