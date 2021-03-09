@@ -67,6 +67,10 @@
           $oidRefJaune = $this->getConfiguration('oid_ref_jaune', '');
           $oidRefMagenta = $this->getConfiguration('oid_ref_magenta', '');
           $oidRefCyan = $this->getConfiguration('oid_ref_cyan', '');
+          $oidBacPolyvalent = $this->getConfiguration('oid_bac_polyvalent', '');
+          $oidBacPolyvalentMax = $this->getConfiguration('oid_bac_polyvalent_max', '');
+          $oidBacCassette1 = $this->getConfiguration('oid_bac_cassette_1', '');
+          $oidBacCassette1Max = $this->getConfiguration('oid_bac_cassette_1_max', '');
 
           if ($adresseIp === '') {
               return;
@@ -307,6 +311,58 @@
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
                   $this->getCmd(null, 'ref_cyan')->event($refCyan);
+              }
+          }
+
+          $bacPolyvalentMax = 1;
+          if ($oidBacPolyvalentMax !== '') {
+              try {
+                  $bacPolyvalentMax = snmpget($adresseIp, 'public', $oidBacPolyvalentMax, 50000, 1);
+              } catch (Throwable $t) {
+                  log::add('printerStatus', 'error', $t->getMessage());
+              } catch (Exception $e) {
+                  log::add('printerStatus', 'error', $e->getMessage());
+              }
+          }
+          if ($bacPolyvalentMax == 0) {
+              $bacPolyvalentMax = 1;
+          }
+          
+          if ($oidBacPolyvalent !== '') {
+              try {
+                  $bacPolyvalent = snmpget($adresseIp, 'public', $oidBacPolyvalent, 50000, 1);
+              } catch (Throwable $t) {
+                  log::add('printerStatus', 'error', $t->getMessage());
+              } catch (Exception $e) {
+                  log::add('printerStatus', 'error', $e->getMessage());
+              } finally {
+                  $this->getCmd(null, 'bac_polyvalent')->event(intval($bacPolyvalent)*100/intval($bacPolyvalentMax));
+              }
+          }
+
+          $bacCassette1Max = 1;
+          if ($oidBacCassette1Max !== '') {
+              try {
+                  $bacCassette1Max = snmpget($adresseIp, 'public', $oidBacCassette1Max, 50000, 1);
+              } catch (Throwable $t) {
+                  log::add('printerStatus', 'error', $t->getMessage());
+              } catch (Exception $e) {
+                  log::add('printerStatus', 'error', $e->getMessage());
+              }
+          }
+          if ($bacCassette1Max == 0) {
+              $bacCassette1Max = 1;
+          }
+          
+          if ($oidBacCassette1 !== '') {
+              try {
+                  $bacCassette1 = snmpget($adresseIp, 'public', $oidBacCassette1, 50000, 1);
+              } catch (Throwable $t) {
+                  log::add('printerStatus', 'error', $t->getMessage());
+              } catch (Exception $e) {
+                  log::add('printerStatus', 'error', $e->getMessage());
+              } finally {
+                  $this->getCmd(null, 'bac_cassette1')->event(intval($bacCassette1)*100/intval($bacCassette1Max));
               }
           }
 
@@ -600,6 +656,33 @@
           $obj->setSubType('string');
           $obj->setLogicalId('ref_cyan');
           $obj->save();
+
+          $obj = $this->getCmd(null, 'bac_polyvalent');
+          if (!is_object($obj)) {
+              $obj = new printerStatusCmd();
+              $obj->setName(__('Niveau bac polyvalent', __FILE__));
+              $obj->setIsVisible(1);
+              $obj->setIsHistorized(0);
+          }
+          $obj->setEqLogic_id($this->getId());
+          $obj->setType('info');
+          $obj->setSubType('numeric');
+          $obj->setLogicalId('bac_polyvalent');
+          $obj->save();
+
+          $obj = $this->getCmd(null, 'bac_cassette1');
+          if (!is_object($obj)) {
+              $obj = new printerStatusCmd();
+              $obj->setName(__('Niveau bac cassette 1', __FILE__));
+              $obj->setIsVisible(1);
+              $obj->setIsHistorized(0);
+          }
+          $obj->setEqLogic_id($this->getId());
+          $obj->setType('info');
+          $obj->setSubType('numeric');
+          $obj->setLogicalId('bac_cassette1');
+          $obj->save();
+
       }
 
       // Fonction exécutée automatiquement avant la suppression de l'équipement
@@ -691,7 +774,17 @@
           $obj = $this->getCmd(null, 'ref_cyan');
           $replace["#refCyan#"] = $obj->execCmd();
           $replace["#idRefCyan#"] = $obj->getId();
+
+          $replace["#adresse_ip#"] = $this->getConfiguration('adresse_ip', '');
     
+          $obj = $this->getCmd(null, 'bac_polyvalent');
+          $replace["#bacPolyvalent#"] = $obj->execCmd();
+          $replace["#idBacPolyvalent#"] = $obj->getId();
+
+          $obj = $this->getCmd(null, 'bac_cassette1');
+          $replace["#bacCassette1#"] = $obj->execCmd();
+          $replace["#idBacCassette1#"] = $obj->getId();
+
           return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'printerStatus_view', 'printerStatus')));
       }
   }
