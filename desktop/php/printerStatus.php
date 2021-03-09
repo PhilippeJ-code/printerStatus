@@ -232,14 +232,7 @@
                   placeholder="{{OID Niveau bac polyvalent}}" />
               </div>
             </div>
-            <div class="form-group">
-              <label class="col-sm-3 control-label">{{OID Niveau bac polyvalent max}}</label>
-              <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_bac_polyvalent_max"
-                  placeholder="{{OID Niveau bac polyvalent max}}" />
-              </div>
-            </div>
-
+  
             <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Niveau bac cassette 1}}</label>
               <div class="col-sm-9">

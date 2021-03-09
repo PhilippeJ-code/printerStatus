@@ -68,7 +68,6 @@
           $oidRefMagenta = $this->getConfiguration('oid_ref_magenta', '');
           $oidRefCyan = $this->getConfiguration('oid_ref_cyan', '');
           $oidBacPolyvalent = $this->getConfiguration('oid_bac_polyvalent', '');
-          $oidBacPolyvalentMax = $this->getConfiguration('oid_bac_polyvalent_max', '');
           $oidBacCassette1 = $this->getConfiguration('oid_bac_cassette_1', '');
           $oidBacCassette1Max = $this->getConfiguration('oid_bac_cassette_1_max', '');
 
@@ -313,20 +312,6 @@
                   $this->getCmd(null, 'ref_cyan')->event($refCyan);
               }
           }
-
-          $bacPolyvalentMax = 1;
-          if ($oidBacPolyvalentMax !== '') {
-              try {
-                  $bacPolyvalentMax = snmpget($adresseIp, 'public', $oidBacPolyvalentMax, 50000, 1);
-              } catch (Throwable $t) {
-                  log::add('printerStatus', 'error', $t->getMessage());
-              } catch (Exception $e) {
-                  log::add('printerStatus', 'error', $e->getMessage());
-              }
-          }
-          if ($bacPolyvalentMax == 0) {
-              $bacPolyvalentMax = 1;
-          }
           
           if ($oidBacPolyvalent !== '') {
               try {
@@ -336,7 +321,7 @@
               } catch (Exception $e) {
                   log::add('printerStatus', 'error', $e->getMessage());
               } finally {
-                  $this->getCmd(null, 'bac_polyvalent')->event(intval($bacPolyvalent)*100/intval($bacPolyvalentMax));
+                  $this->getCmd(null, 'bac_polyvalent')->event(intval($bacPolyvalent));
               }
           }
 

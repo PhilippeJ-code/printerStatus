@@ -44,7 +44,7 @@
         </div><br>
 		<div class="gap-5"></div> 
         <div class='progresswrapper#uid#'>
-            <div id='idCas1Progress#uid#' class='progress#uid# cyan#uid#'>
+            <div id='idCas1Progress#uid#' class='progress#uid# green#uid#'>
                 <div id='idCas1Label#uid#' class='progress-label#uid#'></div>
             </div>
         </div><br>
@@ -165,6 +165,11 @@
         .cyan#uid# .ui-widget-header {
             background-color: cyan !important;
         }
+
+        .green#uid# .ui-widget-header {
+            background-color:#a2f60d !important;
+        }
+
     </style>
     <script>
         if ('#refresh_id#' != '') {
@@ -232,37 +237,39 @@
 
         jeedom.cmd.update['#idNoir#'] = function (_options) {
             $('#idNoirLabel#uid#').html('Noir : ' + _options.display_value + "%");
-            $('#idNoirProgress#uid#').progressbar({ value: _options.display_value })
+            $('#idNoirProgress#uid#').progressbar({ value: _options.display_value });
         }
         jeedom.cmd.update['#idNoir#']({ display_value: 0#noir# });
 
         jeedom.cmd.update['#idJaune#'] = function (_options) {
             $('#idJauneLabel#uid#').html('Jaune : ' + _options.display_value + "%");
-            $('#idJauneProgress#uid#').progressbar({ value: _options.display_value })
+            $('#idJauneProgress#uid#').progressbar({ value: _options.display_value });
         }
         jeedom.cmd.update['#idJaune#']({ display_value: 0#jaune# });
 
         jeedom.cmd.update['#idMagenta#'] = function (_options) {
             $('#idMagentaLabel#uid#').html('Magenta : ' + _options.display_value + "%");
-            $('#idMagentaProgress#uid#').progressbar({ value: _options.display_value })
+            $('#idMagentaProgress#uid#').progressbar({ value: _options.display_value });
         }
         jeedom.cmd.update['#idMagenta#']({ display_value: 0#magenta# });
 
         jeedom.cmd.update['#idCyan#'] = function (_options) {
             $('#idCyanLabel#uid#').html('Cyan : ' + _options.display_value + "%");
-            $('#idCyanProgress#uid#').progressbar({ value: _options.display_value })
+            $('#idCyanProgress#uid#').progressbar({ value: _options.display_value });
         }
         jeedom.cmd.update['#idCyan#']({ display_value: 0#cyan# });
 
         jeedom.cmd.update['#idBacPolyvalent#'] = function (_options) {
-            $('#idPolyLabel#uid#').html('Bac polyvalent : ' + _options.display_value + "%");
-            $('#idPolyProgress#uid#').progressbar({ value: _options.display_value })
+            if ( _options.display_value == 0 )
+                $('#idPolyLabel#uid#').html('Bac Polyvalent Vide');
+            else
+                $('#idPolyLabel#uid#').html('Bac Polyvalent Alimenté');
         }
         jeedom.cmd.update['#idBacPolyvalent#']({ display_value: 0#bacPolyvalent# });
 
         jeedom.cmd.update['#idBacCassette1#'] = function (_options) {
             $('#idCas1Label#uid#').html('Bac cassette 1 : ' + _options.display_value + "%");
-            $('#idCas1Progress#uid#').progressbar({ value: _options.display_value })
+            $('#idCas1Progress#uid#').progressbar({ value: _options.display_value });
         }
         jeedom.cmd.update['#idBacCassette1#']({ display_value: 0#bacCassette1# });
 
