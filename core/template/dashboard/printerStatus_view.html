@@ -14,7 +14,9 @@
     </center>
 
     <div class="classContenant#uid#">
+
         <span class="classTitre#uid#">Caractéristiques</span></br>
+		<div class="gap-5"></div> 
         <span class="classSousTitre#uid#">Nom du système</span><span class="classValeur#uid#"
             id="idSystemName#uid#"></span></br>
         <span class="classSousTitre#uid#">Modèle</span><span class="classValeur#uid#" id="idModel#uid#"></span></br>
@@ -22,47 +24,61 @@
             id="idSerial#uid#"></span></br>
         <span class="classSousTitre#uid#">Nom d'hôte</span><span class="classValeur#uid#" id="idHote#uid#"></span></br>
         <span class="classSousTitre#uid#">Adresse IP</span><span class="classValeur#uid#">#adresse_ip#</span></br>
+
+		<div class="gap-5"></div> 
         <span class="classTitre#uid#">Pages imprimées</span></br>
+		<div class="gap-5"></div> 
         <span class="classSousTitre#uid#">Couleur</span><span class="classValeur#uid#"
             id="idPagesCouleur#uid#"></span></br>
         <span class="classSousTitre#uid#">Monochrome</span><span class="classValeur#uid#"
             id="idPagesMonochrome#uid#"></span></br>
         <span class="classSousTitre#uid#">Total</span><span class="classValeur#uid#" id="idPagesTotal#uid#"></span></br>
 
+		<div class="gap-5"></div> 
         <span class="classTitre#uid#">Etat Bacs</span></br>
+		<div class="gap-5"></div> 
         <div class='progresswrapper#uid#'>
             <div id='idPolyProgress#uid#' class='progress#uid# cyan#uid#'>
                 <div id='idPolyLabel#uid#' class='progress-label#uid#'></div>
             </div>
         </div><br>
+		<div class="gap-5"></div> 
         <div class='progresswrapper#uid#'>
             <div id='idCas1Progress#uid#' class='progress#uid# cyan#uid#'>
                 <div id='idCas1Label#uid#' class='progress-label#uid#'></div>
             </div>
         </div><br>
 
+		<div class="gap-5"></div> 
         <span class="classTitre#uid#">Etat Toner</span></br>
+		<div class="gap-5"></div> 
         <div class='progresswrapper#uid#'>
             <div id='idNoirProgress#uid#' class='progress#uid# black#uid#'>
                 <div id='idNoirLabel#uid#' class='progress-label#uid#'></div>
             </div>
         </div><br>
+		<div class="gap-5"></div> 
         <div class='progresswrapper#uid#'>
             <div id='idJauneProgress#uid#' class='progress#uid# yellow#uid#'>
                 <div id='idJauneLabel#uid#' class='progress-label#uid#'></div>
             </div>
         </div><br>
+		<div class="gap-5"></div> 
         <div class='progresswrapper#uid#'>
             <div id='idMagentaProgress#uid#' class='progress#uid# magenta#uid#'>
                 <div id='idMagentaLabel#uid#' class='progress-label#uid#'></div>
             </div>
         </div><br>
+		<div class="gap-5"></div> 
         <div class='progresswrapper#uid#'>
             <div id='idCyanProgress#uid#' class='progress#uid# cyan#uid#'>
                 <div id='idCyanLabel#uid#' class='progress-label#uid#'></div>
             </div>
-        </div><br><br>
+        </div><br>
+        
+		<div class="gap-5"></div> 
         <span class="classTitre#uid#">Références Toner</span></br>
+		<div class="gap-5"></div> 
         <span class="classSousTitre#uid#">Noir</span><span class="classValeur#uid#" id="idRefNoir#uid#"></span></br>
         <span class="classSousTitre#uid#">Jaune</span><span class="classValeur#uid#" id="idRefJaune#uid#"></span></br>
         <span class="classSousTitre#uid#">Magenta</span><span class="classValeur#uid#"
@@ -111,16 +127,20 @@
             color: #808080;
         }
 
+        .gap-5 { 
+				width:100%; 
+				height:5px; 
+			} 
+            
         .progresswrapper#uid# {
             position: absolute;
             display: inline-block;
             width: 96%;
             left: 2%;
-            padding-top: 5px;
         }
 
-        .progress#uid#{            
- height:20px !important;
+        .progress#uid# {            
+            height:20px !important;
         }
 
         .progress-label#uid# {
