@@ -228,7 +228,7 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Niveau bac polyvalent}}</label>
               <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_bac_polyalent"
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_bac_polyvalent"
                   placeholder="{{OID Niveau bac polyvalent}}" />
               </div>
             </div>

@@ -261,14 +261,14 @@
 
         jeedom.cmd.update['#idBacPolyvalent#'] = function (_options) {
             if ( _options.display_value == 0 )
-                $('#idPolyLabel#uid#').html('Bac Polyvalent Vide');
+                $('#idPolyLabel#uid#').html('Polyvalent Vide');
             else
-                $('#idPolyLabel#uid#').html('Bac Polyvalent Alimenté');
+                $('#idPolyLabel#uid#').html('Polyvalent Alimenté');
         }
         jeedom.cmd.update['#idBacPolyvalent#']({ display_value: 0#bacPolyvalent# });
 
         jeedom.cmd.update['#idBacCassette1#'] = function (_options) {
-            $('#idCas1Label#uid#').html('Bac cassette 1 : ' + _options.display_value + "%");
+            $('#idCas1Label#uid#').html('Cassette 1 : ' + _options.display_value + "%");
             $('#idCas1Progress#uid#').progressbar({ value: _options.display_value });
         }
         jeedom.cmd.update['#idBacCassette1#']({ display_value: 0#bacCassette1# });
