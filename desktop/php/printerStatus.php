@@ -54,6 +54,10 @@
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation"><a href="#" class="eqLogicAction" aria-controls="home" role="tab" data-toggle="tab" data-action="returnToThumbnailDisplay"><i class="fa fa-arrow-circle-left"></i></a></li>
       <li role="presentation" class="active"><a href="#eqlogictab" aria-controls="home" role="tab" data-toggle="tab"><i class="fas fa-tachometer-alt"></i> {{Equipement}}</a></li>
+      <li role="presentation"><a href="#oidscartab" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i>{{Oids Infos}}</a></li>
+      <li role="presentation"><a href="#oidstontab" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i>{{Oids Toners}}</a></li>
+      <li role="presentation"><a href="#oidspagtab" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i>{{Oids Pages}}</a></li>
+      <li role="presentation"><a href="#widgettab" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i>{{Widget}}</a></li>
       <li role="presentation"><a href="#commandtab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i> {{Commandes}}</a></li>
     </ul>
     <div class="tab-content" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">
@@ -105,6 +109,7 @@
 	          </div>
 
             <legend><i class="fas fa-cogs"></i> {{Paramètres}}</legend>
+
             <div class="form-group">
               <label class="col-sm-3 control-label">{{Adresse IP de l'imprimante}}</label>
               <div class="col-sm-9">
@@ -112,6 +117,16 @@
                   placeholder="{{Adresse IP}}" />
               </div>
             </div>
+
+          </fieldset>
+        </form>
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="widgettab">
+        <form class="form-horizontal">
+          <fieldset>
+            <br /><br />
+
             <div class="form-group">
               <label class="col-sm-3 control-label">{{Utiliser le widget du plugin}}</label>
               <div class="col-sm-3 form-check-input">
@@ -119,6 +134,15 @@
                   data-l2key="isWidgetPlugin" checked /></label>
               </div>
             </div>
+
+          </fieldset>
+        </form>
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="oidscartab">
+        <form class="form-horizontal">
+          <fieldset>
+            <br /><br />
             <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Nom système}}</label>
               <div class="col-sm-9">
@@ -147,6 +171,14 @@
                   placeholder="{{OID Nom d'hôte}}" />
               </div>
             </div>
+            </fieldset>
+        </form>
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="oidstontab">
+        <form class="form-horizontal">
+          <fieldset>
+            <br /><br />
             <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Niveau toner noir}}</label>
               <div class="col-sm-9">
@@ -204,54 +236,10 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-3 control-label">{{OID Pages couleur}}</label>
-              <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_pages_couleur"
-                  placeholder="{{OID Pages couleur}}" />
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-3 control-label">{{OID Pages monochrome}}</label>
-              <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_pages_monochrome"
-                  placeholder="{{OID Pages monochrome}}" />
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-3 control-label">{{OID Pages total}}</label>
-              <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_pages_total"
-                  placeholder="{{OID Pages total}}" />
-              </div>
-            </div>
-            <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Référence Toner noir}}</label>
               <div class="col-sm-9">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_ref_noir"
                   placeholder="{{OID Référence Toner noir}}" />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label">{{OID Niveau bac polyvalent}}</label>
-              <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_bac_polyvalent"
-                  placeholder="{{OID Niveau bac polyvalent}}" />
-              </div>
-            </div>
-  
-            <div class="form-group">
-              <label class="col-sm-3 control-label">{{OID Niveau bac cassette 1}}</label>
-              <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_bac_cassette_1"
-                  placeholder="{{OID Niveau bac cassette 1}}" />
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-3 control-label">{{OID Niveau bac cassette 1 max}}</label>
-              <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_bac_cassette_1_max"
-                  placeholder="{{OID Niveau bac cassette 1 max}}" />
               </div>
             </div>
 
@@ -279,9 +267,60 @@
               </div>
             </div>
 
-          </fieldset>
+            </fieldset>
         </form>
       </div>
+
+      <div role="tabpanel" class="tab-pane" id="oidspagtab">
+        <form class="form-horizontal">
+          <fieldset>
+            <br /><br />
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Pages couleur}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_pages_couleur"
+                  placeholder="{{OID Pages couleur}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Pages monochrome}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_pages_monochrome"
+                  placeholder="{{OID Pages monochrome}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Pages total}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_pages_total"
+                  placeholder="{{OID Pages total}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Niveau bac polyvalent}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_bac_polyvalent"
+                  placeholder="{{OID Niveau bac polyvalent}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Niveau bac cassette 1}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_bac_cassette_1"
+                  placeholder="{{OID Niveau bac cassette 1}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Niveau bac cassette 1 max}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_bac_cassette_1_max"
+                  placeholder="{{OID Niveau bac cassette 1 max}}" />
+              </div>
+            </div>
+            </fieldset>
+        </form>
+      </div>
+
       <div role="tabpanel" class="tab-pane" id="commandtab">
         <a class="btn btn-success btn-sm cmdAction pull-right" data-action="add" style="margin-top:5px;"><i class="fa fa-plus-circle"></i> {{Commandes}}</a><br/><br/>
         <table id="table_cmd" class="table table-bordered table-condensed">
