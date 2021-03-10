@@ -329,6 +329,7 @@
           if ($oidBacCassette1Max !== '') {
               try {
                   $bacCassette1Max = snmpget($adresseIp, 'public', $oidBacCassette1Max, 50000, 1);
+                  log::add('printerStatus', 'debug', 'Cas1Max : ' . $bacCassette1Max);
               } catch (Throwable $t) {
                   log::add('printerStatus', 'error', $t->getMessage());
               } catch (Exception $e) {
@@ -342,6 +343,7 @@
           if ($oidBacCassette1 !== '') {
               try {
                   $bacCassette1 = snmpget($adresseIp, 'public', $oidBacCassette1, 50000, 1);
+                  log::add('printerStatus', 'debug', 'Cas1 : ' . $bacCassette1);
               } catch (Throwable $t) {
                   log::add('printerStatus', 'error', $t->getMessage());
               } catch (Exception $e) {
