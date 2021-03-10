@@ -72,6 +72,12 @@
           $oidBacCassette1Max = $this->getConfiguration('oid_bac_cassette_1_max', '');
 
           if ($adresseIp === '') {
+              $this->getCmd(null, 'bac_cassette1')->event(rand(0, 100));
+              $this->getCmd(null, 'noir')->event(rand(0, 100));
+              $this->getCmd(null, 'jaune')->event(rand(0, 100));
+              $this->getCmd(null, 'magenta')->event(rand(0, 100));
+              $this->getCmd(null, 'cyan')->event(rand(0, 100));
+
               return;
           }
 
@@ -669,7 +675,6 @@
           $obj->setSubType('numeric');
           $obj->setLogicalId('bac_cassette1');
           $obj->save();
-
       }
 
       // Fonction exécutée automatiquement avant la suppression de l'équipement
@@ -692,7 +697,7 @@
 
           if (!$isWidgetPlugin) {
               return eqLogic::toHtml($_version);
-          }        
+          }
 
           $replace = $this->preToHtml($_version);
           if (!is_array($replace)) {

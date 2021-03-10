@@ -237,25 +237,29 @@
 
         jeedom.cmd.update['#idNoir#'] = function (_options) {
             $('#idNoirLabel#uid#').html('Noir : ' + _options.display_value + "%");
-            $('#idNoirProgress#uid#').progressbar({ value: _options.display_value });
+            let val = parseInt(_options.display_value);
+            $('#idNoirProgress#uid#').progressbar({ value: val });
         }
         jeedom.cmd.update['#idNoir#']({ display_value: '#noir#' });
 
         jeedom.cmd.update['#idJaune#'] = function (_options) {
             $('#idJauneLabel#uid#').html('Jaune : ' + _options.display_value + "%");
-            $('#idJauneProgress#uid#').progressbar({ value: _options.display_value });
+            let val = parseInt(_options.display_value);
+            $('#idJauneProgress#uid#').progressbar({ value: val });
         }
         jeedom.cmd.update['#idJaune#']({ display_value: '#jaune#' });
 
         jeedom.cmd.update['#idMagenta#'] = function (_options) {
             $('#idMagentaLabel#uid#').html('Magenta : ' + _options.display_value + "%");
-            $('#idMagentaProgress#uid#').progressbar({ value: _options.display_value });
+            let val = parseInt(_options.display_value);
+            $('#idMagentaProgress#uid#').progressbar({ value: val });
         }
         jeedom.cmd.update['#idMagenta#']({ display_value: '#magenta#' });
 
         jeedom.cmd.update['#idCyan#'] = function (_options) {
             $('#idCyanLabel#uid#').html('Cyan : ' + _options.display_value + "%");
-            $('#idCyanProgress#uid#').progressbar({ value: _options.display_value });
+            let val = parseInt(_options.display_value);
+            $('#idCyanProgress#uid#').progressbar({ value: val });
         }
         jeedom.cmd.update['#idCyan#']({ display_value: '#cyan#' });
 
@@ -269,7 +273,8 @@
 
         jeedom.cmd.update['#idBacCassette1#'] = function (_options) {
             $('#idCas1Label#uid#').html('Cassette 1 : ' + _options.display_value + "%");
-            $('#idCas1Progress#uid#').progressbar({ value: _options.display_value });
+            let val = parseInt(_options.display_value);
+            $('#idCas1Progress#uid#').progressbar({ value: val });
         }
         jeedom.cmd.update['#idBacCassette1#']({ display_value: '#bacCassette1#' });
 
