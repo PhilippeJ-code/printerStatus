@@ -239,25 +239,25 @@
             $('#idNoirLabel#uid#').html('Noir : ' + _options.display_value + "%");
             $('#idNoirProgress#uid#').progressbar({ value: _options.display_value });
         }
-        jeedom.cmd.update['#idNoir#']({ display_value: 0#noir# });
+        jeedom.cmd.update['#idNoir#']({ display_value: '#noir#' });
 
         jeedom.cmd.update['#idJaune#'] = function (_options) {
             $('#idJauneLabel#uid#').html('Jaune : ' + _options.display_value + "%");
             $('#idJauneProgress#uid#').progressbar({ value: _options.display_value });
         }
-        jeedom.cmd.update['#idJaune#']({ display_value: 0#jaune# });
+        jeedom.cmd.update['#idJaune#']({ display_value: '#jaune#' });
 
         jeedom.cmd.update['#idMagenta#'] = function (_options) {
             $('#idMagentaLabel#uid#').html('Magenta : ' + _options.display_value + "%");
             $('#idMagentaProgress#uid#').progressbar({ value: _options.display_value });
         }
-        jeedom.cmd.update['#idMagenta#']({ display_value: 0#magenta# });
+        jeedom.cmd.update['#idMagenta#']({ display_value: '#magenta#' });
 
         jeedom.cmd.update['#idCyan#'] = function (_options) {
             $('#idCyanLabel#uid#').html('Cyan : ' + _options.display_value + "%");
             $('#idCyanProgress#uid#').progressbar({ value: _options.display_value });
         }
-        jeedom.cmd.update['#idCyan#']({ display_value: 0#cyan# });
+        jeedom.cmd.update['#idCyan#']({ display_value: '#cyan#' });
 
         jeedom.cmd.update['#idBacPolyvalent#'] = function (_options) {
             if ( _options.display_value == 0 )
@@ -265,13 +265,13 @@
             else
                 $('#idPolyLabel#uid#').html('Polyvalent Alimenté');
         }
-        jeedom.cmd.update['#idBacPolyvalent#']({ display_value: 0#bacPolyvalent# });
+        jeedom.cmd.update['#idBacPolyvalent#']({ display_value: '#bacPolyvalent#' });
 
         jeedom.cmd.update['#idBacCassette1#'] = function (_options) {
             $('#idCas1Label#uid#').html('Cassette 1 : ' + _options.display_value + "%");
             $('#idCas1Progress#uid#').progressbar({ value: _options.display_value });
         }
-        jeedom.cmd.update['#idBacCassette1#']({ display_value: 0#bacCassette1# });
+        jeedom.cmd.update['#idBacCassette1#']({ display_value: '#bacCassette1#' });
 
     </script>
 
