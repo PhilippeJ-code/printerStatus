@@ -688,13 +688,11 @@
       //
       public function toHtml($_version = 'dashboard')
       {
-          /*
           $isWidgetPlugin = $this->getConfiguration('isWidgetPlugin');
 
           if (!$isWidgetPlugin) {
               return eqLogic::toHtml($_version);
-          }
-          */
+          }        
 
           $replace = $this->preToHtml($_version);
           if (!is_array($replace)) {
