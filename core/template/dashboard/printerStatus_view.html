@@ -349,7 +349,7 @@
                 $('#idEtat#uid#').css("color", "red");
             }
             else{
-                $('#idEtat#uid#').removeProperty("css");          
+                $('#idEtat#uid#').css("color", "");
             }
         }
         jeedom.cmd.update['#idEtat#']({ display_value: '#etat#' });

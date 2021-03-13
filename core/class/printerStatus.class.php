@@ -81,6 +81,8 @@
           if ($ping_check != 0) {
               $this->getCmd(null, 'state')->event('Hors ligne');
               return;
+          }else{
+              $this->getCmd(null, 'state')->event('En ligne');
           }
 
           try {
