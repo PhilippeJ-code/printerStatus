@@ -99,7 +99,6 @@
               $noirMax = 1;
               if ($oidNoirMax !== '') {
                   $noirMax = snmpget($adresseIp, 'public', $oidNoirMax, 50000, 1);
-                  log::add('printerStatus', 'error', $e->getMessage());
               }
               if ($noirMax == 0) {
                   $noirMax = 1;
