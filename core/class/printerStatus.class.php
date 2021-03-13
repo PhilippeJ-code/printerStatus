@@ -77,6 +77,12 @@
               return;
           }
 
+          $ping_check=exec('/bin/ping -c2 -q -w2 '.$adresseIp.' | grep transmitted | cut -f3 -d"," | cut -f1 -d"," | cut -f1 -d"%"');
+          if ($ping_check != 0) {
+              $this->getCmd(null, 'state')->event('Hors ligne');
+              return;
+          }
+
           try {
               snmp_set_valueretrieval(SNMP_VALUE_PLAIN);
           
