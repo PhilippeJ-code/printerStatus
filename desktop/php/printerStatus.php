@@ -63,7 +63,7 @@
     <div class="tab-content" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">
       <div role="tabpanel" class="tab-pane active" id="eqlogictab">
         <br/>
-        <form class="form-horizontal">
+        <form class="form-horizontal"> 
           <fieldset>
             <legend><i class="fas fa-wrench"></i> {{Général}}</legend>
             <div class="form-group">
@@ -169,6 +169,20 @@
               <div class="col-sm-9">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_hote"
                   placeholder="{{OID Nom d'hôte}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Etat}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_state"
+                  placeholder="{{OID Etat}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{OID Temps d'activité}}</label>
+              <div class="col-sm-9">
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_timeticks"
+                  placeholder="{{OID Temps d'activité}}" />
               </div>
             </div>
             </fieldset>

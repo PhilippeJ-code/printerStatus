@@ -13,82 +13,102 @@
         <a href="#eqLink#" class="reportModeHidden">#name_display# <span class="object_name">#object_name#</span></a>
     </center>
 
-    <div class="classContenant#uid#">
+    <div class="classContenant#uid#" id="idResume#uid#">
 
-        <span class="classTitre#uid#">Caractéristiques</span></br>
-		<div class="gap-5"></div> 
-        <span class="classSousTitre#uid#">Nom du système</span><span class="classValeur#uid#"
-            id="idSystemName#uid#"></span></br>
-        <span class="classSousTitre#uid#">Modèle</span><span class="classValeur#uid#" id="idModel#uid#"></span></br>
-        <span class="classSousTitre#uid#">Numéro de série</span><span class="classValeur#uid#"
-            id="idSerial#uid#"></span></br>
-        <span class="classSousTitre#uid#">Nom d'hôte</span><span class="classValeur#uid#" id="idHote#uid#"></span></br>
+        <span class="classTitre#uid#">Caractéristiques</span>
+        <img class="classReferences#uid# cursor" id="idOptionsReferences#uid#"
+            src="plugins/printerStatus/resources/question.svg"></br>
+        <div class="gap-5"></div>
         <span class="classSousTitre#uid#">Adresse IP</span><span class="classValeur#uid#">#adresse_ip#</span></br>
 
-		<div class="gap-5"></div> 
+        <div class="gap-5"></div>
+        <span class="classTitre#uid#">Statut</span></br>
+        <div class="gap-5"></div>
+        <span class="classSousTitre#uid#">Etat</span><span class="classValeur#uid#" id="idEtat#uid#"></span></br>
+        <span class="classSousTitre#uid#">Activité</span><span class="classValeur#uid#"
+            id="idTempsActivite#uid#"></span></br>
+
+        <div class="gap-5"></div>
         <span class="classTitre#uid#">Pages imprimées</span></br>
-		<div class="gap-5"></div> 
+        <div class="gap-5"></div>
         <span class="classSousTitre#uid#">Couleur</span><span class="classValeur#uid#"
             id="idPagesCouleur#uid#"></span></br>
         <span class="classSousTitre#uid#">Monochrome</span><span class="classValeur#uid#"
             id="idPagesMonochrome#uid#"></span></br>
         <span class="classSousTitre#uid#">Total</span><span class="classValeur#uid#" id="idPagesTotal#uid#"></span></br>
 
-		<div class="gap-5"></div> 
+        <div class="gap-5"></div>
         <span class="classTitre#uid#">Etat Bacs</span></br>
-		<div class="gap-5"></div> 
+        <div class="gap-5"></div>
         <div class='progresswrapper#uid#'>
             <div id='idPolyProgress#uid#' class='progress#uid# cyan#uid#'>
                 <div id='idPolyLabel#uid#' class='progress-label#uid#'></div>
             </div>
         </div><br>
-		<div class="gap-5"></div> 
+        <div class="gap-5"></div>
         <div class='progresswrapper#uid#'>
             <div id='idCas1Progress#uid#' class='progress#uid# green#uid#'>
                 <div id='idCas1Label#uid#' class='progress-label#uid#'></div>
             </div>
         </div><br>
 
-		<div class="gap-5"></div> 
+        <div class="gap-5"></div>
         <span class="classTitre#uid#">Etat Toner</span></br>
-		<div class="gap-5"></div> 
+        <div class="gap-5"></div>
         <div class='progresswrapper#uid#'>
             <div id='idNoirProgress#uid#' class='progress#uid# black#uid#'>
                 <div id='idNoirLabel#uid#' class='progress-label#uid#'></div>
             </div>
         </div><br>
-		<div class="gap-5"></div> 
+        <div class="gap-5"></div>
         <div class='progresswrapper#uid#'>
             <div id='idJauneProgress#uid#' class='progress#uid# yellow#uid#'>
                 <div id='idJauneLabel#uid#' class='progress-label#uid#'></div>
             </div>
         </div><br>
-		<div class="gap-5"></div> 
+        <div class="gap-5"></div>
         <div class='progresswrapper#uid#'>
             <div id='idMagentaProgress#uid#' class='progress#uid# magenta#uid#'>
                 <div id='idMagentaLabel#uid#' class='progress-label#uid#'></div>
             </div>
         </div><br>
-		<div class="gap-5"></div> 
+        <div class="gap-5"></div>
         <div class='progresswrapper#uid#'>
             <div id='idCyanProgress#uid#' class='progress#uid# cyan#uid#'>
                 <div id='idCyanLabel#uid#' class='progress-label#uid#'></div>
             </div>
         </div><br>
-        
-		<div class="gap-5"></div> 
+
+    </div>
+
+    <div class="classContenant#uid#" id="idReferences#uid#" style="display:none;">
+
+        <br><br>
+        <span class="classTitre#uid#">Caractéristiques</span></br>
+        <div class="gap-5"></div>
+        <span class="classSousTitre#uid#">Nom du système</span><span class="classValeur#uid#"
+            id="idSystemName#uid#"></span></br>
+        <span class="classSousTitre#uid#">Modèle</span><span class="classValeur#uid#" id="idModel#uid#"></span></br>
+        <span class="classSousTitre#uid#">Numéro de série</span><span class="classValeur#uid#"
+            id="idSerial#uid#"></span></br>
+        <span class="classSousTitre#uid#">Nom d'hôte</span><span class="classValeur#uid#" id="idHote#uid#"></span></br>
+
+        <div class="gap-5"></div>
         <span class="classTitre#uid#">Références Toner</span></br>
-		<div class="gap-5"></div> 
+        <div class="gap-5"></div>
         <span class="classSousTitre#uid#">Noir</span><span class="classValeur#uid#" id="idRefNoir#uid#"></span></br>
         <span class="classSousTitre#uid#">Jaune</span><span class="classValeur#uid#" id="idRefJaune#uid#"></span></br>
         <span class="classSousTitre#uid#">Magenta</span><span class="classValeur#uid#"
             id="idRefMagenta#uid#"></span></br>
         <span class="classSousTitre#uid#">Cyan</span><span class="classValeur#uid#" id="idRefCyan#uid#"></span></br>
 
+        <img class="classPrecedent#uid# cursor" src="plugins/printerStatus/resources/previous.svg">
+
     </div>
 
     <style>
         .classContenant#uid# {
+            position: relative;
             width: 100%;
             height: 100%;
         }
@@ -127,11 +147,37 @@
             color: #808080;
         }
 
-        .gap-5 { 
-				width:100%; 
-				height:5px; 
-			} 
-            
+        .classReferences#uid# {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: 7px;
+            top: 0px;
+            filter: invert(56%) sepia(0%) saturate(299%) hue-rotate(144deg) brightness(89%) contrast(94%);
+        }
+
+        .classReferences#uid#:hover {
+            filter: invert(29%) sepia(99%) saturate(1522%) hue-rotate(346deg) brightness(102%) contrast(96%);
+        }
+
+        .classPrecedent#uid# {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: 5px;
+            top: 3px;
+            filter: invert(56%) sepia(0%) saturate(299%) hue-rotate(144deg) brightness(89%) contrast(94%);
+        }
+
+        .classPrecedent#uid#:hover {
+            filter: invert(29%) sepia(99%) saturate(1522%) hue-rotate(346deg) brightness(102%) contrast(96%);
+        }
+
+        .gap-5 {
+            width: 100%;
+            height: 5px;
+        }
+
         .progresswrapper#uid# {
             position: absolute;
             display: inline-block;
@@ -139,8 +185,8 @@
             left: 2%;
         }
 
-        .progress#uid# {            
-            height:20px !important;
+        .progress#uid# {
+            height: 20px !important;
         }
 
         .progress-label#uid# {
@@ -167,11 +213,30 @@
         }
 
         .green#uid# .ui-widget-header {
-            background-color:#a2f60d !important;
+            background-color: #a2f60d !important;
         }
-
     </style>
     <script>
+
+        // Affichage initial
+        //
+        $('#idResume#uid#').show();
+        $('#idReferences#uid#').hide();
+
+        // Retour sur tuile principale
+        //
+        $('.classPrecedent#uid#').on('click', function () {
+            $('#idResume#uid#').show();
+            $('#idReferences#uid#').hide();
+        });
+
+        // Click pour accès tuile références
+        //
+        $('#idOptionsReferences#uid#').on('click', function () {
+            $('#idResume#uid#').hide();
+            $('#idReferences#uid#').show();
+        });
+
         if ('#refresh_id#' != '') {
             $('.eqLogic[data-eqLogic_uid=#uid#] .refresh').on('click', function () {
                 jeedom.cmd.execute({ id: '#refresh_id#' });
@@ -264,7 +329,7 @@
         jeedom.cmd.update['#idCyan#']({ display_value: '#cyan#' });
 
         jeedom.cmd.update['#idBacPolyvalent#'] = function (_options) {
-            if ( _options.display_value == 0 )
+            if (_options.display_value == 0)
                 $('#idPolyLabel#uid#').html('Polyvalent Vide');
             else
                 $('#idPolyLabel#uid#').html('Polyvalent Alimenté');
@@ -277,6 +342,16 @@
             $('#idCas1Progress#uid#').progressbar({ value: val });
         }
         jeedom.cmd.update['#idBacCassette1#']({ display_value: '#bacCassette1#' });
+
+        jeedom.cmd.update['#idEtat#'] = function (_options) {
+            $('#idEtat#uid#').html(_options.display_value);
+        }
+        jeedom.cmd.update['#idEtat#']({ display_value: '#etat#' });
+
+        jeedom.cmd.update['#idTempsActivite#'] = function (_options) {
+            $('#idTempsActivite#uid#').html(_options.display_value);
+        }
+        jeedom.cmd.update['#idTempsActivite#']({ display_value: '#tempsActivite#' });
 
     </script>
 
