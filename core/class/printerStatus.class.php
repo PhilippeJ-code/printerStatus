@@ -188,7 +188,7 @@
                   $this->getCmd(null, 'state')->event($state);
               }
               if ($oidTimeTicks !== '') {
-                  $durationInSeconds = intval(snmpget($adresseIp, 'public', $oidTimeTicks, 50000, 1));
+                  $durationInSeconds = intval(snmpget($adresseIp, 'public', $oidTimeTicks, 50000, 1)/100);
 
                   $duration = '';
                   $days = floor($durationInSeconds / 86400);
