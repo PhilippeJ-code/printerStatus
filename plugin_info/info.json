@@ -4,7 +4,7 @@
 	"description" : "Ce plugin permet d'obtenir le statut d'une imprimante par SNMP",
 	"licence" : "AGPL",
 	"author" : "PhilippeJ",
-	"require" : "3.2",
+	"require" : "4.0",
 	"category" : "monitoring",
 	"hasDependency" : true,
 	"hasOwnDeamon" : false,
