@@ -34,5 +34,5 @@
     Voici une documentation écrite par nerixs qui décrit les méthodes qu'il a utilisé pour récupérer les OIDs 
     de son imprimante.
 
-    - <a target="_blank" href="https://github.com/PhilippeJ-code/printerStatus/blob/master/docs/fr_FR/Imprimante réseau.pdf">Documentation Oids Imprimante</a>
+- <a target="_blank" href="https://github.com/PhilippeJ-code/printerStatus/blob/master/docs/fr_FR/Imprimante réseau.pdf">Documentation Oids Imprimante</a>
     
