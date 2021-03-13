@@ -344,6 +344,13 @@
 
         jeedom.cmd.update['#idEtat#'] = function (_options) {
             $('#idEtat#uid#').html(_options.display_value);
+            if ( _options.display_value == 'Hors ligne' )
+            {
+                $('#idEtat#uid#').css("color", "red");
+            }
+            else{
+                $('#idEtat#uid#').removeProperty("css");          
+            }
         }
         jeedom.cmd.update['#idEtat#']({ display_value: '#etat#' });
 
