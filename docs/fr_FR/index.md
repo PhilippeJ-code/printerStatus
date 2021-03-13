@@ -23,11 +23,11 @@
 
     Le widget présente les informations de consommation de l'imprimante 
 
-![General](../images/Vue_Caractéristiques.jpg "General")
+![General](../images/general.png "General")
 
     L'icone en forme de point d'interrogation permet d'avoir accès à des informations additionnelles
 
-![Caract](../images/Vue_Générale.jpg "Caract")
+![Caract](../images/caract.png "Caract")
 
 ## 4. Comment récupérer les OIDs
 
