@@ -45,6 +45,135 @@
           passthru('sudo apt install php-snmp -y >> ' . log::getPathToLog('printerStatus_dep') . ' 2>&1 &');
       }
 
+      public function importer($nomImprimante)
+      {
+          $array = array();
+
+          $json_file = __DIR__ . '/../../data/'.$nomImprimante.'.json';
+
+          $string = file_get_contents($json_file);
+          $array = json_decode($string, true);
+
+          $n = count($array);
+          for ($i=0; $i<$n; $i++) {
+              if ($array[$i]['nom'] == 'oidSystemName') {
+                  $this->setConfiguration('oid_system_name', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidModel') {
+                  $this->setConfiguration('oid_model', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidSerial') {
+                  $this->setConfiguration('oid_serial', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidHote') {
+                  $this->setConfiguration('oid_hote', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidNoir') {
+                  $this->setConfiguration('oid_noir', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidJaune') {
+                  $this->setConfiguration('oid_jaune', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidMagenta') {
+                  $this->setConfiguration('oid_magenta', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidCyan') {
+                  $this->setConfiguration('oid_cyan', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidNoirMax') {
+                  $this->setConfiguration('oid_noir_max', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidJauneMax') {
+                  $this->setConfiguration('oid_jaune_max', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidMagentaMax') {
+                  $this->setConfiguration('oid_magenta_max', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidCyanMax') {
+                  $this->setConfiguration('oid_cyan_max', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidPagesCouleur') {
+                  $this->setConfiguration('oid_pages_couleur', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidPagesMonochrome') {
+                  $this->setConfiguration('oid_pages_monochrome', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidPagesTotal') {
+                  $this->setConfiguration('oid_pages_total', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidRefNoir') {
+                  $this->setConfiguration('oid_ref_noir', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidRefJaune') {
+                  $this->setConfiguration('oid_ref_jaune', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidRefMagenta') {
+                  $this->setConfiguration('oid_ref_magenta', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidRefCyan') {
+                  $this->setConfiguration('oid_ref_cyan', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidBacPolyvalent') {
+                  $this->setConfiguration('oid_bac_polyvalent', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidBacCassette1') {
+                  $this->setConfiguration('oid_bac_cassette_1', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidBacCassette1Max') {
+                  $this->setConfiguration('oid_bac_cassette_1_max', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidState') {
+                  $this->setConfiguration('oid_state', $array[$i]['valeur']);
+              } elseif ($array[$i]['nom'] == 'oidTimeTicks') {
+                  $this->setConfiguration('oid_timeticks', $array[$i]['valeur']);
+              }
+         }
+
+         $this->save();
+          
+        return $array;
+      }
+
+      public function exporter($nomImprimante)
+      {
+          $array = array();
+
+          $json_file = __DIR__ . '/../../data/'.$nomImprimante.'.json';
+
+          $oidSystemName = $this->getConfiguration('oid_system_name', '');
+          $oidModel = $this->getConfiguration('oid_model', '');
+          $oidSerial = $this->getConfiguration('oid_serial', '');
+          $oidHote = $this->getConfiguration('oid_hote', '');
+          $oidNoir = $this->getConfiguration('oid_noir', '');
+          $oidJaune = $this->getConfiguration('oid_jaune', '');
+          $oidMagenta = $this->getConfiguration('oid_magenta', '');
+          $oidCyan = $this->getConfiguration('oid_cyan', '');
+          $oidNoirMax = $this->getConfiguration('oid_noir_max', '');
+          $oidJauneMax = $this->getConfiguration('oid_jaune_max', '');
+          $oidMagentaMax = $this->getConfiguration('oid_magenta_max', '');
+          $oidCyanMax = $this->getConfiguration('oid_cyan_max', '');
+          $oidPagesCouleur = $this->getConfiguration('oid_pages_couleur', '');
+          $oidPagesMonochrome = $this->getConfiguration('oid_pages_monochrome', '');
+          $oidPagesTotal = $this->getConfiguration('oid_pages_total', '');
+          $oidRefNoir = $this->getConfiguration('oid_ref_noir', '');
+          $oidRefJaune = $this->getConfiguration('oid_ref_jaune', '');
+          $oidRefMagenta = $this->getConfiguration('oid_ref_magenta', '');
+          $oidRefCyan = $this->getConfiguration('oid_ref_cyan', '');
+          $oidBacPolyvalent = $this->getConfiguration('oid_bac_polyvalent', '');
+          $oidBacCassette1 = $this->getConfiguration('oid_bac_cassette_1', '');
+          $oidBacCassette1Max = $this->getConfiguration('oid_bac_cassette_1_max', '');
+          $oidState = $this->getConfiguration('oid_state', '');
+          $oidTimeTicks = $this->getConfiguration('oid_timeticks', '');
+
+          $array[] = array('nom'=>'oidSystemName','valeur'=>$oidSystemName);
+          $array[] = array('nom'=>'oidModel','valeur'=>$oidModel);
+          $array[] = array('nom'=>'oidSerial','valeur'=>$oidSerial);
+          $array[] = array('nom'=>'oidHote','valeur'=>$oidHote);
+          $array[] = array('nom'=>'oidNoir','valeur'=>$oidNoir);
+          $array[] = array('nom'=>'oidJaune','valeur'=>$oidJaune);
+          $array[] = array('nom'=>'oidMagenta','valeur'=>$oidMagenta);
+          $array[] = array('nom'=>'oidCyan','valeur'=>$oidCyan);
+          $array[] = array('nom'=>'oidNoirMax','valeur'=>$oidNoirMax);
+          $array[] = array('nom'=>'oidJauneMax','valeur'=>$oidJauneMax);
+          $array[] = array('nom'=>'oidMagentaMax','valeur'=>$oidMagentaMax);
+          $array[] = array('nom'=>'oidCyanMax','valeur'=>$oidCyanMax);
+          $array[] = array('nom'=>'oidPagesCouleur','valeur'=>$oidPagesCouleur);
+          $array[] = array('nom'=>'oidPagesMonochrome','valeur'=>$oidPagesMonochrome);
+          $array[] = array('nom'=>'oidPagesTotal','valeur'=>$oidPagesTotal);
+          $array[] = array('nom'=>'oidRefNoir','valeur'=>$oidRefNoir);
+          $array[] = array('nom'=>'oidRefJaune','valeur'=>$oidRefJaune);
+          $array[] = array('nom'=>'oidRefMagenta','valeur'=>$oidRefMagenta);
+          $array[] = array('nom'=>'oidRefCyan','valeur'=>$oidRefCyan);
+          $array[] = array('nom'=>'oidBacPolyvalent','valeur'=>$oidBacPolyvalent);
+          $array[] = array('nom'=>'oidBacCassette1','valeur'=>$oidBacCassette1);
+          $array[] = array('nom'=>'oidBacCassette1Max','valeur'=>$oidBacCassette1Max);
+          $array[] = array('nom'=>'oidState','valeur'=>$oidState);
+          $array[] = array('nom'=>'oidTimeTicks','valeur'=>$oidTimeTicks);
+ 
+          $json = json_encode($array, JSON_PRETTY_PRINT);
+          file_put_contents($json_file, $json);
+
+          return array();
+      }
+
       public function rafraichir()
       {
           $adresseIp = $this->getConfiguration('adresse_ip', '');
@@ -81,7 +210,7 @@
           if ($ping_check != 0) {
               $this->getCmd(null, 'state')->event('Hors ligne');
               return;
-          }else{
+          } else {
               $this->getCmd(null, 'state')->event('En ligne');
           }
 
@@ -91,18 +220,26 @@
               if ($oidSystemName !== '') {
                   $systemName = snmpget($adresseIp, 'public', $oidSystemName, 50000, 1);
                   $this->getCmd(null, 'system_name')->event($systemName);
+              } else {
+                  $this->getCmd(null, 'system_name')->event('');
               }
               if ($oidModel !== '') {
                   $model = snmpget($adresseIp, 'public', $oidModel, 50000, 1);
                   $this->getCmd(null, 'model')->event($model);
+              } else {
+                  $this->getCmd(null, 'model')->event('');
               }
               if ($oidSerial !== '') {
                   $serial = snmpget($adresseIp, 'public', $oidSerial, 50000, 1);
                   $this->getCmd(null, 'serial')->event($serial);
+              } else {
+                  $this->getCmd(null, 'serial')->event('');
               }
               if ($oidHote !== '') {
                   $hote = snmpget($adresseIp, 'public', $oidHote, 50000, 1);
                   $this->getCmd(null, 'hote')->event($hote);
+              } else {
+                  $this->getCmd(null, 'hote')->event('');
               }
               $noirMax = 1;
               if ($oidNoirMax !== '') {
@@ -134,47 +271,74 @@
               }
               if ($oidNoir !== '') {
                   $noir = snmpget($adresseIp, 'public', $oidNoir, 50000, 1);
-                  $this->getCmd(null, 'noir')->event(intval($noir)*100/intval($noirMax));
+                  $this->getCmd(null, 'noir')->event(round((intval($noir)*100)/intval($noirMax)), 0);
+              } else {
+                  $this->getCmd(null, 'noir')->event('');
               }
               if ($oidJaune !== '') {
                   $jaune = snmpget($adresseIp, 'public', $oidJaune, 50000, 1);
-                  $this->getCmd(null, 'jaune')->event(intval($jaune)*100/intval($jauneMax));
+                  $this->getCmd(null, 'jaune')->event(round((intval($jaune)*100)/intval($jauneMax)), 0);
+              } else {
+                  $this->getCmd(null, 'jaune')->event('');
               }
               if ($oidMagenta !== '') {
                   $magenta = snmpget($adresseIp, 'public', $oidMagenta, 50000, 1);
-                  $this->getCmd(null, 'magenta')->event(intval($magenta)*100/intval($magentaMax));
+                  $this->getCmd(null, 'magenta')->event(round((intval($magenta)*100)/intval($magentaMax)), 0);
+              } else {
+                  $this->getCmd(null, 'magenta')->event('');
               }
               if ($oidCyan !== '') {
                   $cyan = snmpget($adresseIp, 'public', $oidCyan, 50000, 1);
-                  $this->getCmd(null, 'cyan')->event(intval($cyan)*100/intval($cyanMax));
+                  $this->getCmd(null, 'cyan')->event(round((intval($cyan)*100)/intval($cyanMax)), 0);
+              } else {
+                  $this->getCmd(null, 'cyan')->event('');
               }
               if ($oidPagesCouleur !== '') {
                   $pagesCouleur = snmpget($adresseIp, 'public', $oidPagesCouleur, 50000, 1);
                   $this->getCmd(null, 'pages_couleur')->event(intval($pagesCouleur));
+              } else {
+                  $this->getCmd(null, 'pages_couleur')->event('');
               }
               if ($oidPagesMonochrome !== '') {
                   $pagesMonochrome = snmpget($adresseIp, 'public', $oidPagesMonochrome, 50000, 1);
                   $this->getCmd(null, 'pages_monochrome')->event(intval($pagesMonochrome));
+              } else {
+                  $this->getCmd(null, 'pages_monochrome')->event('');
               }
               if ($oidPagesTotal !== '') {
                   $pagesTotal = snmpget($adresseIp, 'public', $oidPagesTotal, 50000, 1);
                   $this->getCmd(null, 'pages_total')->event(intval($pagesTotal));
+              } else {
+                  $this->getCmd(null, 'pages_total')->event('');
               }
+
+              if ($oidPagesMonochrome == '') {
+                  $pagesMonochrome = $pagesTotal - $pagesCouleur;
+              }
+
               if ($oidRefNoir !== '') {
                   $refNoir = snmpget($adresseIp, 'public', $oidRefNoir, 50000, 1);
                   $this->getCmd(null, 'ref_noir')->event($refNoir);
+              } else {
+                  $this->getCmd(null, 'ref_noir')->event('');
               }
               if ($oidRefJaune !== '') {
                   $refJaune = snmpget($adresseIp, 'public', $oidRefJaune, 50000, 1);
                   $this->getCmd(null, 'ref_jaune')->event($refJaune);
+              } else {
+                  $this->getCmd(null, 'ref_jaune')->event('');
               }
               if ($oidRefMagenta !== '') {
                   $refMagenta = snmpget($adresseIp, 'public', $oidRefMagenta, 50000, 1);
                   $this->getCmd(null, 'ref_magenta')->event($refMagenta);
+              } else {
+                  $this->getCmd(null, 'ref_magenta')->event('');
               }
               if ($oidRefCyan !== '') {
                   $refCyan = snmpget($adresseIp, 'public', $oidRefCyan, 50000, 1);
                   $this->getCmd(null, 'ref_cyan')->event($refCyan);
+              } else {
+                  $this->getCmd(null, 'ref_cyan')->event('');
               }
               if ($oidBacPolyvalent !== '') {
                   $bacPolyvalent = snmpget($adresseIp, 'public', $oidBacPolyvalent, 50000, 1);
@@ -189,11 +353,13 @@
               }
               if ($oidBacCassette1 !== '') {
                   $bacCassette1 = snmpget($adresseIp, 'public', $oidBacCassette1, 50000, 1);
-                  $this->getCmd(null, 'bac_cassette1')->event(intval($bacCassette1)*100/intval($bacCassette1Max));
+                  $this->getCmd(null, 'bac_cassette1')->event((intval($bacCassette1)*100)/intval($bacCassette1Max));
               }
               if ($oidState !== '') {
                   $state = snmpget($adresseIp, 'public', $oidState, 50000, 1);
                   $this->getCmd(null, 'state')->event($state);
+              } else {
+                  $this->getCmd(null, 'state')->event('');
               }
               if ($oidTimeTicks !== '') {
                   $durationInSeconds = intval(snmpget($adresseIp, 'public', $oidTimeTicks, 50000, 1)/100);
@@ -219,6 +385,8 @@
                       $duration .= ' ' . $seconds . ' s';
                   }
                   $this->getCmd(null, 'activity_duration')->event($duration);
+              } else {
+                  $this->getCmd(null, 'activity_duration')->event('');
               }
           } catch (Throwable $t) {
               log::add('printerStatus', 'error', $t->getMessage());

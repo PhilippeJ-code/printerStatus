@@ -1,7 +1,6 @@
 <?php
-  if (!isConnect('admin')) 
-  {
-	 throw new Exception('{{401 - Accès non autorisé}}');
+  if (!isConnect('admin')) {
+      throw new Exception('{{401 - Accès non autorisé}}');
   }
 
   $plugin = plugin::byId('printerStatus');
@@ -12,7 +11,7 @@
 
 <div class="row row-overflow">
   <div class="col-xs-12 eqLogicThumbnailDisplay">
-    <legend><i class="fas fa-cog"></i>  {{Gestion}}</legend>
+    <legend><i class="fas fa-cog"></i> {{Gestion}}</legend>
     <div class="eqLogicThumbnailContainer">
       <div class="cursor eqLogicAction logoPrimary" data-action="add">
         <i class="fas fa-plus-circle"></i>
@@ -26,95 +25,153 @@
       </div>
     </div>
     <legend><i class="fas fa-table"></i> {{Mes équipements}}</legend>
-	  <input class="form-control" placeholder="{{Rechercher}}" id="in_searchEqlogic" />
+    <input class="form-control" placeholder="{{Rechercher}}" id="in_searchEqlogic" />
     <div class="eqLogicThumbnailContainer">
       <?php
 
         // Affiche la liste des équipements
         //
-        foreach ($eqLogics as $eqLogic) 
-        {
-	        $opacity = ($eqLogic->getIsEnable()) ? '' : 'disableCard';
-	        echo '<div class="eqLogicDisplayCard cursor '.$opacity.'" data-eqLogic_id="' . $eqLogic->getId() . '">';
-	        echo '<img src="' . $plugin->getPathImgIcon() . '"/>';
-	        echo '<br>';
-	        echo '<span class="name">' . $eqLogic->getHumanName(true, true) . '</span>';
-	        echo '</div>';
+        foreach ($eqLogics as $eqLogic) {
+            $opacity = ($eqLogic->getIsEnable()) ? '' : 'disableCard';
+            echo '<div class="eqLogicDisplayCard cursor '.$opacity.'" data-eqLogic_id="' . $eqLogic->getId() . '">';
+            echo '<img src="' . $plugin->getPathImgIcon() . '"/>';
+            echo '<br>';
+            echo '<span class="name">' . $eqLogic->getHumanName(true, true) . '</span>';
+            echo '</div>';
         }
       ?>
     </div>
   </div>
 
   <div class="col-xs-12 eqLogic" style="display: none;">
-		<div class="input-group pull-right" style="display:inline-flex">
-			<span class="input-group-btn">
-	   		<a class="btn btn-default btn-sm eqLogicAction roundedLeft" data-action="configure"><i class="fa fa-cogs"></i> {{Configuration avancée}}</a><a class="btn btn-default btn-sm eqLogicAction" data-action="copy"><i class="fas fa-copy"></i> {{Dupliquer}}</a><a class="btn btn-sm btn-success eqLogicAction" data-action="save"><i class="fas fa-check-circle"></i> {{Sauvegarder}}</a><a class="btn btn-danger btn-sm eqLogicAction roundedRight" data-action="remove"><i class="fas fa-minus-circle"></i> {{Supprimer}}</a>
-			</span>
-		</div>
+    <div class="input-group pull-right" style="display:inline-flex">
+      <span class="input-group-btn">
+        <a class="btn btn-default btn-sm eqLogicAction roundedLeft" data-action="configure"><i class="fa fa-cogs"></i>
+          {{Configuration avancée}}</a><a class="btn btn-default btn-sm eqLogicAction" data-action="copy"><i
+            class="fas fa-copy"></i> {{Dupliquer}}</a><a class="btn btn-sm btn-success eqLogicAction"
+          data-action="save"><i class="fas fa-check-circle"></i> {{Sauvegarder}}</a><a
+          class="btn btn-danger btn-sm eqLogicAction roundedRight" data-action="remove"><i
+            class="fas fa-minus-circle"></i> {{Supprimer}}</a>
+      </span>
+    </div>
     <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation"><a href="#" class="eqLogicAction" aria-controls="home" role="tab" data-toggle="tab" data-action="returnToThumbnailDisplay"><i class="fa fa-arrow-circle-left"></i></a></li>
-      <li role="presentation" class="active"><a href="#eqlogictab" aria-controls="home" role="tab" data-toggle="tab"><i class="fas fa-tachometer-alt"></i> {{Equipement}}</a></li>
-      <li role="presentation"><a href="#oidscartab" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i>{{Oids Infos}}</a></li>
-      <li role="presentation"><a href="#oidstontab" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i>{{Oids Toners}}</a></li>
-      <li role="presentation"><a href="#oidspagtab" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i>{{Oids Pages}}</a></li>
-      <li role="presentation"><a href="#widgettab" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i>{{Widget}}</a></li>
-      <li role="presentation"><a href="#commandtab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i> {{Commandes}}</a></li>
+      <li role="presentation"><a href="#" class="eqLogicAction" aria-controls="home" role="tab" data-toggle="tab"
+          data-action="returnToThumbnailDisplay"><i class="fa fa-arrow-circle-left"></i></a></li>
+      <li role="presentation" class="active"><a href="#eqlogictab" aria-controls="home" role="tab" data-toggle="tab"><i
+            class="fas fa-tachometer-alt"></i> {{Equipement}}</a></li>
+      <li role="presentation"><a href="#oidscartab" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i>{{Oids
+          Infos}}</a></li>
+      <li role="presentation"><a href="#oidstontab" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i>{{Oids
+          Toners}}</a></li>
+      <li role="presentation"><a href="#oidspagtab" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i>{{Oids
+          Pages}}</a></li>
+      <li role="presentation"><a href="#widgettab" role="tab" data-toggle="tab"><i
+            class="fa fa-list-alt"></i>{{Widget}}</a></li>
+      <li role="presentation"><a href="#commandtab" aria-controls="profile" role="tab" data-toggle="tab"><i
+            class="fa fa-list-alt"></i> {{Commandes}}</a></li>
     </ul>
     <div class="tab-content" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">
       <div role="tabpanel" class="tab-pane active" id="eqlogictab">
-        <br/>
-        <form class="form-horizontal"> 
+        <br />
+        <form class="form-horizontal">
           <fieldset>
             <legend><i class="fas fa-wrench"></i> {{Général}}</legend>
             <div class="form-group">
               <label class="col-sm-3 control-label">{{Nom de l'équipement}}</label>
               <div class="col-sm-3">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="id" style="display : none;" />
-                <input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement}}"/>
+                <input type="text" class="eqLogicAttr form-control" data-l1key="name"
+                  placeholder="{{Nom de l'équipement}}" />
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-3 control-label" >{{Objet parent}}</label>
+              <label class="col-sm-3 control-label">{{Objet parent}}</label>
               <div class="col-sm-3">
                 <select id="sel_object" class="eqLogicAttr form-control" data-l1key="object_id">
                   <option value="">{{Aucun}}</option>
                   <?php
-                    foreach (jeeObject::all() as $object) 
-                    {
-	                    echo '<option value="' . $object->getId() . '">' . $object->getName() . '</option>';
+                    foreach (jeeObject::all() as $object) {
+                        echo '<option value="' . $object->getId() . '">' . $object->getName() . '</option>';
                     }
                   ?>
                 </select>
               </div>
             </div>
-	          <div class="form-group">
+            <div class="form-group">
               <label class="col-sm-3 control-label">{{Catégorie}}</label>
               <div class="col-sm-9">
                 <?php
-                  foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) 
-                  {
-                    echo '<label class="checkbox-inline">';
-                    echo '<input type="checkbox" class="eqLogicAttr" data-l1key="category" data-l2key="' . $key . '" />' . $value['name'];
-                    echo '</label>';
+                  foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
+                      echo '<label class="checkbox-inline">';
+                      echo '<input type="checkbox" class="eqLogicAttr" data-l1key="category" data-l2key="' . $key . '" />' . $value['name'];
+                      echo '</label>';
                   }
                 ?>
               </div>
             </div>
-	          <div class="form-group">
-		          <label class="col-sm-3 control-label"></label>
-		          <div class="col-sm-9">
-			          <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isEnable" checked/>{{Activer}}</label>
-			          <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked/>{{Visible}}</label>
-		          </div>
-	          </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label"></label>
+              <div class="col-sm-9">
+                <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isEnable"
+                    checked />{{Activer}}</label>
+                <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible"
+                    checked />{{Visible}}</label>
+              </div>
+            </div>
 
             <legend><i class="fas fa-cogs"></i> {{Paramètres}}</legend>
 
             <div class="form-group">
               <label class="col-sm-3 control-label">{{Adresse IP de l'imprimante}}</label>
-              <div class="col-sm-9">
+              <div class="col-sm-4">
                 <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="adresse_ip"
                   placeholder="{{Adresse IP}}" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{Importation}}</label>
+              <div class="col-sm-4">
+                <select class="configKey form-control" data-l1key="visuel" id="idListeImprimantes">
+
+                  <?php
+
+                    $path = '/var/www/html/plugins/printerStatus/data/';
+                    $dp = opendir($path);
+                    $i=0;
+                    while ($file = readdir($dp)) {
+                        $len = strlen($file);
+                        if ($len > 5) {
+                            $ext = substr($file, $len-5, 5);
+                            if ($ext === '.json') {
+                                $template = substr($file, 0, $len-5);
+                                $ListTemplates[$i]=$template;
+                                $i++;
+                            }
+                        }
+                    }
+            
+                    closedir($dp);
+                    sort($ListTemplates);
+                    $i=0;
+                    while ($i < count($ListTemplates)) {
+                        echo '<option value="'.$ListTemplates[$i].'">'.$ListTemplates[$i].'</option>';
+                        $i++;
+                    }
+                  ?>
+                </select>
+              </div>
+              <div class="col-sm-4">
+                <a class="btn btn-primary" id="idImporter"><i class="fa fa-cloud-upload-alt"></i> {{Exécuter}}</a>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{Exportation}}</label>
+              <div class="col-sm-4">
+                <input type="text" id="idNomImprimante" class="form-control" placeholder="{{Nom imprimante}}" />
+              </div>
+              <div class="col-sm-4">
+                <a class="btn btn-primary" id="idExporter"><i class="fa fa-save"></i> {{Exécuter}}</a>
               </div>
             </div>
 
@@ -146,8 +203,8 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Nom système}}</label>
               <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_system_name"
-                  placeholder="{{OID Nom système}}" />
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration"
+                  data-l2key="oid_system_name" placeholder="{{OID Nom système}}" />
               </div>
             </div>
             <div class="form-group">
@@ -181,11 +238,11 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Temps d'activité}}</label>
               <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_timeticks"
-                  placeholder="{{OID Temps d'activité}}" />
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration"
+                  data-l2key="oid_timeticks" placeholder="{{OID Temps d'activité}}" />
               </div>
             </div>
-            </fieldset>
+          </fieldset>
         </form>
       </div>
 
@@ -231,15 +288,15 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Niveau toner jaune max}}</label>
               <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_jaune_max"
-                  placeholder="{{OID Niveau toner jaune max}}" />
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration"
+                  data-l2key="oid_jaune_max" placeholder="{{OID Niveau toner jaune max}}" />
               </div>
             </div>
             <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Niveau toner magenta max}}</label>
               <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_magenta_max"
-                  placeholder="{{OID Niveau toner magenta max}}" />
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration"
+                  data-l2key="oid_magenta_max" placeholder="{{OID Niveau toner magenta max}}" />
               </div>
             </div>
             <div class="form-group">
@@ -260,16 +317,16 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Référence Toner jaune}}</label>
               <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_ref_jaune"
-                  placeholder="{{OID Référence Toner jaune}}" />
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration"
+                  data-l2key="oid_ref_jaune" placeholder="{{OID Référence Toner jaune}}" />
               </div>
             </div>
 
             <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Référence Toner magenta}}</label>
               <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_ref_magenta"
-                  placeholder="{{OID Référence Toner magenta}}" />
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration"
+                  data-l2key="oid_ref_magenta" placeholder="{{OID Référence Toner magenta}}" />
               </div>
             </div>
 
@@ -281,7 +338,7 @@
               </div>
             </div>
 
-            </fieldset>
+          </fieldset>
         </form>
       </div>
 
@@ -292,55 +349,58 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Pages couleur}}</label>
               <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_pages_couleur"
-                  placeholder="{{OID Pages couleur}}" />
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration"
+                  data-l2key="oid_pages_couleur" placeholder="{{OID Pages couleur}}" />
               </div>
             </div>
             <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Pages monochrome}}</label>
               <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_pages_monochrome"
-                  placeholder="{{OID Pages monochrome}}" />
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration"
+                  data-l2key="oid_pages_monochrome" placeholder="{{OID Pages monochrome}}" />
               </div>
             </div>
             <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Pages total}}</label>
               <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_pages_total"
-                  placeholder="{{OID Pages total}}" />
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration"
+                  data-l2key="oid_pages_total" placeholder="{{OID Pages total}}" />
               </div>
             </div>
             <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Niveau bac polyvalent}}</label>
               <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_bac_polyvalent"
-                  placeholder="{{OID Niveau bac polyvalent}}" />
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration"
+                  data-l2key="oid_bac_polyvalent" placeholder="{{OID Niveau bac polyvalent}}" />
               </div>
             </div>
             <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Niveau bac cassette 1}}</label>
               <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_bac_cassette_1"
-                  placeholder="{{OID Niveau bac cassette 1}}" />
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration"
+                  data-l2key="oid_bac_cassette_1" placeholder="{{OID Niveau bac cassette 1}}" />
               </div>
             </div>
             <div class="form-group">
               <label class="col-sm-3 control-label">{{OID Niveau bac cassette 1 max}}</label>
               <div class="col-sm-9">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="oid_bac_cassette_1_max"
-                  placeholder="{{OID Niveau bac cassette 1 max}}" />
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration"
+                  data-l2key="oid_bac_cassette_1_max" placeholder="{{OID Niveau bac cassette 1 max}}" />
               </div>
             </div>
-            </fieldset>
+          </fieldset>
         </form>
       </div>
 
       <div role="tabpanel" class="tab-pane" id="commandtab">
-        <a class="btn btn-success btn-sm cmdAction pull-right" data-action="add" style="margin-top:5px;"><i class="fa fa-plus-circle"></i> {{Commandes}}</a><br/><br/>
+        <a class="btn btn-success btn-sm cmdAction pull-right" data-action="add" style="margin-top:5px;"><i
+            class="fa fa-plus-circle"></i> {{Commandes}}</a><br /><br />
         <table id="table_cmd" class="table table-bordered table-condensed">
           <thead>
             <tr>
-              <th>{{Nom}}</th><th>{{Type}}</th><th>{{Action}}</th>
+              <th>{{Nom}}</th>
+              <th>{{Type}}</th>
+              <th>{{Action}}</th>
             </tr>
           </thead>
           <tbody>
@@ -354,4 +414,4 @@
 <!-- Inclusion du fichier javascript du plugin (dossier, nom_du_fichier, extension_du_fichier, nom_du_plugin) -->
 <?php include_file('desktop', 'printerStatus', 'js', 'printerStatus');?>
 <!-- Inclusion du fichier javascript du core - NE PAS MODIFIER NI SUPPRIMER -->
-<?php include_file('core', 'plugin.template', 'js');?>
+<?php include_file('core', 'plugin.template', 'js');

@@ -1,0 +1,98 @@
+[
+    {
+        "nom": "oidSystemName",
+        "valeur": "1.3.6.1.2.1.25.3.2.1.3.1"
+    },
+    {
+        "nom": "oidModel",
+        "valeur": "1.3.6.1.4.1.11.2.4.3.1.10.0"
+    },
+    {
+        "nom": "oidSerial",
+        "valeur": "1.3.6.1.2.1.43.5.1.1.17.1"
+    },
+    {
+        "nom": "oidHote",
+        "valeur": "1.3.6.1.2.1.1.5.0"
+    },
+    {
+        "nom": "oidNoir",
+        "valeur": ""
+    },
+    {
+        "nom": "oidJaune",
+        "valeur": "1.3.6.1.2.1.11.2.0"
+    },
+    {
+        "nom": "oidMagenta",
+        "valeur": ""
+    },
+    {
+        "nom": "oidCyan",
+        "valeur": ""
+    },
+    {
+        "nom": "oidNoirMax",
+        "valeur": ""
+    },
+    {
+        "nom": "oidJauneMax",
+        "valeur": "1.3.6.1.2.1.11.1.0"
+    },
+    {
+        "nom": "oidMagentaMax",
+        "valeur": ""
+    },
+    {
+        "nom": "oidCyanMax",
+        "valeur": ""
+    },
+    {
+        "nom": "oidPagesCouleur",
+        "valeur": "1.3.6.1.2.1.43.10.2.1.4.1.2"
+    },
+    {
+        "nom": "oidPagesMonochrome",
+        "valeur": ""
+    },
+    {
+        "nom": "oidPagesTotal",
+        "valeur": "1.3.6.1.2.1.43.10.2.1.4.1.1"
+    },
+    {
+        "nom": "oidRefNoir",
+        "valeur": "1.3.6.1.2.1.43.12.1.1.4.1.2"
+    },
+    {
+        "nom": "oidRefJaune",
+        "valeur": "1.3.6.1.2.1.43.12.1.1.4.1.1"
+    },
+    {
+        "nom": "oidRefMagenta",
+        "valeur": "1.3.6.1.2.1.43.12.1.1.4.1.1"
+    },
+    {
+        "nom": "oidRefCyan",
+        "valeur": "1.3.6.1.2.1.43.12.1.1.4.1.1"
+    },
+    {
+        "nom": "oidBacPolyvalent",
+        "valeur": "1.3.6.1.2.1.43.8.2.1.10.1.1"
+    },
+    {
+        "nom": "oidBacCassette1",
+        "valeur": "1.3.6.1.2.1.43.8.2.1.10.1.2"
+    },
+    {
+        "nom": "oidBacCassette1Max",
+        "valeur": "1.3.6.1.2.1.43.8.2.1.9.1.2"
+    },
+    {
+        "nom": "oidState",
+        "valeur": "1.3.6.1.4.1.11.2.3.9.1.1.3.0"
+    },
+    {
+        "nom": "oidTimeTicks",
+        "valeur": "1.3.6.1.2.1.1.3.0"
+    }
+]
